@@ -178,7 +178,7 @@ input{
       }
     </style>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>-->
     <script type="text/javascript">
 
       var lang = "fr"; //language
@@ -186,8 +186,8 @@ input{
       function changeLg() {
         lang= document.forms["lgForm"]["lg"].value;
         showPageIn();
-        document.getElementById("formS1").reset();
-        document.getElementById("formS2").reset();
+        //document.getElementById("formS1").reset();
+        //document.getElementById("formS2").reset();
         //document.getElementById("formS3").reset();
 
       }
@@ -195,16 +195,16 @@ input{
       function showPageIn() {
         switch (lang) {
             case "en":
-                $(".lang_en").css("display", "inline");
-                $(".lang_fr").css("display", "none");
+                document.querySelectorAll(".lang_fr").forEach(ele=>ele.style.display="none");
+                document.querySelectorAll(".lang_en").forEach(ele=>ele.style.display="inline");
                 break;
             case "fr":
-                $(".lang_fr").css("display", "inline");
-                $(".lang_en").css("display", "none");
+                document.querySelectorAll(".lang_en").forEach(ele=>ele.style.display="none");
+                document.querySelectorAll(".lang_fr").forEach(ele=>ele.style.display="inline");
                 break;
             default:
-                $(".lang_fr").css("display", "inline");
-                $(".lang_en").css("display", "none");
+                document.querySelectorAll(".lang_en").forEach(ele=>ele.style.display="none");
+                document.querySelectorAll(".lang_fr").forEach(ele=>ele.style.display="inline");
         }
       }
       var items = [
@@ -629,7 +629,7 @@ input{
         return table;
       }
 
-      function onTypeHasChanged(selectIDAction, selectIDActionThesaurus){
+      /*function onTypeHasChanged(selectIDAction, selectIDActionThesaurus){
         var type = document.getElementById(selectIDAction).value;
         var listThesaurusElement = document.getElementById(selectIDActionThesaurus);
 
@@ -666,10 +666,10 @@ input{
         //set default type
        // var type = $('#type').val();
         showThesaurus(type);
-        /*$('#type').change(function(){
+        //$('#type').change(function(){
            //showThesaurus($(this).val());
-        });*/
-      }
+        //});
+      }*/
 
       function updateTree(id){
 
