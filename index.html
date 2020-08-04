@@ -267,7 +267,7 @@ input{
           parent.removeChild(parent.firstChild);
         }
 
-        alert("definition tache enregistrée");
+        //alert("definition t&acirc;che enregistr&eacute;e");
 
         var taskName = document.forms["formS1"]["taskName"].value;
         //var stakeholderName = document.forms["formS1"]["stakeholderName"].value;
@@ -313,7 +313,7 @@ input{
             //console.log(k);
             //console.log(allAPCompls[index]);
             var comp = allAPCompls[index].substring(allAPCompls[index].lastIndexOf('-') + 1);
-            var s = "AP "+ allAPCompls[index].split('-', 1)[0]+" => Type: Motor/motrice action = "+k.bold()+" + Complement = "+comp.bold();
+            var s = "AP "+ allAPCompls[index].split('-', 1)[0]+" -> Type: Motor/motrice action = "+k.bold()+" + Complement = "+comp.bold();
             //console.log(s);
             allMotorInteract.push(s);
           }
@@ -331,7 +331,7 @@ input{
           step21.appendChild(li);
 
           var num = element.split('-', 1)[0];
-
+          console.log ("num"+num);
           if (element.includes("navigation")){
             create22QuestionsSelectNAV(li, num);            
           }
@@ -375,14 +375,14 @@ input{
 
         var S2prim11a_VRforS3= thesaurusVR11a.split('-', 1)[0];
         document.getElementById("S2prim11a").textContent =
-        "processus de type : "+type11a+ "; verbe utilisé: " + thesaurus11a+"= en VR interaction de type: "+S2prim11a_VRforS3;
+        "processus de type : "+type11a+ "; verbe utilis&eacute;: " + thesaurus11a+"= en VR interaction de type: "+S2prim11a_VRforS3;
 
         VR_interactions.push(S2prim11a_VRforS3);
         VR_interactions_num.push("11a");
 
         var S2prim11b_VRforS3= thesaurusVR11b.split('-', 1)[0];
         document.getElementById("S2prim11b").textContent =
-        "processus de type : "+type11b+ "; verbe utilisé: " + thesaurus11b+"= en VR interaction de type: "+S2prim11b_VRforS3;
+        "processus de type : "+type11b+ "; verbe utilis&eacute;: " + thesaurus11b+"= en VR interaction de type: "+S2prim11b_VRforS3;
 
         VR_interactions.push(S2prim11b_VRforS3);
         VR_interactions_num.push("11b");
@@ -1624,7 +1624,7 @@ input{
   <body onload="showPageIn()">
     <main>
       <h2 class="center">
-        <span class="lang lang_fr">Méthodologie pour faciliter la conception de techniques d'interactions de réalité virtuelle</span>
+        <span class="lang lang_fr">M&eacute;thodologie pour faciliter la conception de techniques d'interactions de r&eacute;alit&eacute; virtuelle</span>
         <span class="lang lang_en">Methodology to facilitate the design of virtual reality interaction techniques</span>
       </h2>
       <div>
@@ -1643,38 +1643,38 @@ input{
 
       <div>
         <h2 style="color:#1E90FF">
-              <span class="lang lang_fr">Etape 1: décomposition de la tâche utilisateur</span>
+              <span class="lang lang_fr">Etape 1: d&eacute;composition de la t&acirc;che utilisateur</span>
               <span class="lang lang_en">Step 1: Decomposition of the user task</span>
         </h2>
         <form name="formS1" id="formS1"  action="#" onsubmit="S1validateForm();return false">
 
           <div id="zoneDecompo-0to1" style="border-color: var(--colorZone0-1); border-style: solid; padding:0.5%">
             <label style="font-weight: bold">
-                <span class="lang lang_fr">Nom de la tâche à effecter en réalité virtuelle: </span>
+                <span class="lang lang_fr">Nom de la t&acirc;che &agrave; effecter en r&eacute;alit&eacute; virtuelle: </span>
                 <span class="lang lang_en">Name of the task to be performed in virtual reality: </span>
             </label>
-            <input placeholder="user task/tache utilisateur" type="text" id="taskName" oninput="updateTree(id)" name="taskName" required style="margin-bottom: 1%"/>
+            <input placeholder="user task/t&acirc;che utilisateur" type="text" id="taskName" oninput="updateTree(id)" name="taskName" required style="margin-bottom: 1%"/>
 
             <div class="parent">
               <div>
                 <div>
                   <label style="font-weight: bold; margin-bottom: 1%">
-                    <span class="lang lang_fr">Sous-tâches (ST)</span>
+                    <span class="lang lang_fr">Sous-t&acirc;ches (ST)</span>
                     <span class="lang lang_en">Sub-tasks (ST)</span>
                   </label>
                   <br/>
                   <label style="width:85%; display:block; margin-top: 1%">
-                    <span class="lang lang_fr"><i>Important</i>: une tâche peut être décomposée ici en maximum 4 sous-tâches. <br/><br/>
-                    <i>Recommandation/proposition</i>: Cette décomposition peut généralement suivre le schéma suivant, sans pour autant comporter obligatoirement ces 4 types de sous tâches:
+                    <span class="lang lang_fr"><i>Important</i>: une t&acirc;che peut &ecirc;tre d&eacute;compos&eacute;e ici en maximum 4 sous-t&acirc;ches. <br/><br/>
+                    <i>Recommandation/proposition</i>: Cette d&eacute;composition peut g&eacute;n&eacute;ralement suivre le sch&eacute;ma suivant, sans pour autant comporter obligatoirement ces 4 types de sous t&acirc;ches:
                       <ul>
-                        <li>Sous-tâche 1 (ST 1) : préparation "spatiale" => détecter, localiser</li>
-                        <li>Sous-tâche 2 (ST 2) : préparation "mentale" ou test préliminaire => comprendre, préparer</li>
-                        <li>Sous-tâche 3 (ST 3) : action pour résoudre le problème  => agir (verbes du métier pour décomposer ensuite)</li>
-                        <li>Sous-tâche 4 (ST 4) : finalisation => finaliser, cloturer</li>
+                        <li>Sous-t&acirc;che 1 (ST 1) : pr&eacute;paration "spatiale" => d&eacute;tecter, localiser</li>
+                        <li>Sous-t&acirc;che 2 (ST 2) : pr&eacute;paration "mentale" ou test pr&eacute;liminaire => comprendre, pr&eacute;parer</li>
+                        <li>Sous-t&acirc;che 3 (ST 3) : action pour r&eacute;soudre le probl&egrave;me  => agir (verbes du m&eacute;tier pour d&eacute;composer ensuite)</li>
+                        <li>Sous-t&acirc;che 4 (ST 4) : finalisation => finaliser, cl&ocirc;turer</li>
                       </ul>
-                      <i>Aide à la décomposition</i>: les verbes précedemment cités sont proposés dans cette liste: lorsque l'un d'entre eux est choisi, des verbes sont automatiquement proposés dans les étapes suivantes de la décomposition, et ainsi de suite jusqu'au dernier niveau (actions primitives). Vous pouvez néanmoins toujours changer le choix qui a été proposé automatiquement.
+                      <i>Aide &agrave; la d&eacute;composition</i>: les verbes pr&eacute;c&eacute;demment cit&eacute;s sont propos&eacute;s dans cette liste: lorsque l'un d'entre eux est choisi, des verbes sont automatiquement propos&eacute;s dans les &eacute;tapes suivantes de la d&eacute;composition, et ainsi de suite jusqu'au dernier niveau (actions primitives). Vous pouvez n&eacute;anmoins toujours changer le choix qui a &eacute;t&eacute; propos&eacute; automatiquement.
                       <br/>
-                      <p style="font-size: 14px">Exceptions: le choix "autre", qui permet d'écrire un verbe propre au domaine métier, ainsi que "agir (physiquement)" -également pour des actes propres au métier, n'offrent pas de suggestions automatique pour les niveaux suivants.</p>
+                      <p style="font-size: 14px">Exceptions: le choix "autre", qui permet d'&eacute;crire un verbe propre au domaine m&eacute;tier, ainsi que "agir (physiquement)" -&eacute;galement pour des actes propres au m&eacute;tier, n'offrent pas de suggestions automatique pour les niveaux suivants.</p>
                     </span>
                     <span class="lang lang_en"><i>Important</i>: a task can be decomposed down into a maximum of 4 subtasks.<br/><br/>
                     <i>Recommendation/proposal</i>: This decomposition can generally follow the following scheme, without necessarily including these 4 types of subtasks:
@@ -1690,7 +1690,7 @@ input{
                     </span>
                   </label>
                   <label style="border-color: var(--color1); border-style: solid">
-                    <span class="lang lang_fr">Sous-tâche ST. 1</span>
+                    <span class="lang lang_fr">Sous-t&acirc;che ST. 1</span>
                     <span class="lang lang_en">Sub-task ST. 1</span>
                   </label>
                   <select id="act1Drop" onchange="updateTree(id)">
@@ -1705,13 +1705,13 @@ input{
                         <option class="lang lang_en" value="other">other</option>
                         <option class="lang lang_en" value="X">X</option>
 
-                        <option class="lang lang_fr" value="detect">détecter</option>
+                        <option class="lang lang_fr" value="detect">d&eacute;tecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
-                        <option class="lang lang_fr" value="prepare">préparer</option>
+                        <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
                         <option class="lang lang_fr" value="perform">agir (physiquement)</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
-                        <option class="lang lang_fr" value="close">cloturer</option>
+                        <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
 
@@ -1721,7 +1721,7 @@ input{
                 </div>
                 <div>
                   <label style="border-color: var(--color2); border-style: solid">
-                    <span class="lang lang_fr">Sous-tâche ST. 2</span>
+                    <span class="lang lang_fr">Sous-t&acirc;che ST. 2</span>
                     <span class="lang lang_en">Sub-task ST. 2</span>
                   </label>
                   <select id="act2Drop" onchange="updateTree(id)">
@@ -1736,13 +1736,13 @@ input{
                         <option class="lang lang_en" value="other">other</option>
                         <option class="lang lang_en" value="X">X</option>
 
-                        <option class="lang lang_fr" value="detect">détecter</option>
+                        <option class="lang lang_fr" value="detect">d&eacute;tecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
-                        <option class="lang lang_fr" value="prepare">préparer</option>
+                        <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
                         <option class="lang lang_fr" value="perform">agir (physiquement)</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
-                        <option class="lang lang_fr" value="close">cloturer</option>
+                        <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
 
@@ -1752,7 +1752,7 @@ input{
                 </div>
                 <div id="txtT3">
                   <label style="border-color: var(--color3); border-style: solid"> 
-                    <span class="lang lang_fr">Sous-tâche ST. 3</span>
+                    <span class="lang lang_fr">Sous-t&acirc;che ST. 3</span>
                     <span class="lang lang_en">Sub-task ST. 3</span>
                   </label>
 
@@ -1768,13 +1768,13 @@ input{
                         <option class="lang lang_en" value="other">other</option>
                         <option class="lang lang_en" value="X">X</option>
 
-                        <option class="lang lang_fr" value="detect">détecter</option>
+                        <option class="lang lang_fr" value="detect">d&eacute;tecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
-                        <option class="lang lang_fr" value="prepare">préparer</option>
+                        <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
                         <option class="lang lang_fr" value="perform">agir (physiquement)</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
-                        <option class="lang lang_fr" value="close">cloturer</option>
+                        <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
 
@@ -1785,7 +1785,7 @@ input{
 
                 <div id="txtT4">
                   <label style="border-color: var(--color4); border-style: solid">
-                    <span class="lang lang_fr">Sous-tâche ST. 4</span>
+                    <span class="lang lang_fr">Sous-t&acirc;che ST. 4</span>
                     <span class="lang lang_en">Sub-task ST. 4</span>
                   </label>
                   <select id="act4Drop" onchange="updateTree(id)">
@@ -1800,13 +1800,13 @@ input{
                         <option class="lang lang_en" value="other">other</option>
                         <option class="lang lang_en" value="X">X</option>
 
-                        <option class="lang lang_fr" value="detect">détecter</option>
+                        <option class="lang lang_fr" value="detect">d&eacute;tecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
-                        <option class="lang lang_fr" value="prepare">préparer</option>
+                        <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
                         <option class="lang lang_fr" value="perform">agir (physiquement)</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
-                        <option class="lang lang_fr" value="close">cloturer</option>
+                        <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
 
@@ -1817,12 +1817,12 @@ input{
               </div>
               <div class="tf-tree">
                 <label style="font-size: 14px; text-decoration: underline">
-                    <span class="lang lang_fr">Décomposition en sous-tâches</span>
+                    <span class="lang lang_fr">D&eacute;composition en sous-t&acirc;ches</span>
                     <span class="lang lang_en">Decomposition into sub-tasks</span>
                 </label>
                 <ul id="0decompoTable">
                   <li>
-                    <span id="taskNameResult" class="tf-nc">tache/task</span>
+                    <span id="taskNameResult" class="tf-nc">t&acirc;che/task</span>
                     <ul id="actLevel">
                       <li>
                         <span class="tf-nc"><p id="act1DropResult">ST 1</p> <p id="act1Result"> </p></span>
@@ -1848,7 +1848,7 @@ input{
 
           <div id="zoneDecompo-t1" style="border-color: var(--color1); border-style: solid; padding:0.5%; padding-bottom: -5%">
             <label style="font-weight: bold; color: var(--color1); font-size: 20px">
-                  <span class="lang lang_fr">Sous-tâche 1:</span>
+                  <span class="lang lang_fr">Sous-t&acirc;che 1:</span>
                   <span class="lang lang_en">Sub-task 1:</span>
                   <label id="act1DropResultCopy0"></label>
                   <label id="act1ResultCopy0"></label>
@@ -1857,7 +1857,7 @@ input{
             <div class="parent"> 
               <div>
                 <label style="font-weight: bold">
-                  <span class="lang lang_fr">Activités (Act)</span>
+                  <span class="lang lang_fr">Activit&eacute;s (Act)</span>
                   <span class="lang lang_en">Activities (Act)</span>
                 </label>
                 <br/>
@@ -1894,14 +1894,14 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
                       <option class="lang lang_fr" value="signal">signaler</option>
@@ -1951,17 +1951,17 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
-                      <option class="lang lang_fr" value="signaler">signaler</option>
+                      <option class="lang lang_fr" value="signal">signaler</option>
 
                       <option class="lang lang_fr" value="correct">corriger</option>
                       <option class="lang lang_fr" value="adjust">ajuster</option>
@@ -1979,7 +1979,7 @@ input{
               </div>
               <div class="tf-tree">
                 <label style="font-size: 14px; text-decoration: underline">
-                    <span class="lang lang_fr">Décomposition de la sous-tâche en activités</span>
+                    <span class="lang lang_fr">D&eacute;composition de la sous-t&acirc;che en activit&eacute;s</span>
                     <span class="lang lang_en">Decomposition of the sub-task into activities</span>
                 </label>
                 <ul id="actLevel">
@@ -2000,7 +2000,7 @@ input{
 
                      
             <label style="font-weight: bold">
-              <span class="lang lang_fr">Opérations (Op) et actions primitives (AP)</span>
+              <span class="lang lang_fr">Op&eacute;rations (Op) et actions primitives (AP)</span>
               <span class="lang lang_en">Operations (Op) and primitive actions (AP)</span>
             </label>
 
@@ -2010,7 +2010,7 @@ input{
                 <br/>
                 <div>
                   <label style="color: var(--color1)">
-                    <span class="lang lang_fr">Activité 1.1:</span>
+                    <span class="lang lang_fr">Activit&eacute; 1.1:</span>
                     <span class="lang lang_en">Activity 1.1:</span>
                     <label id="ope11DropResultCopy0"></label>
                     <label id="ope11ResultCopy0"></label>
@@ -2019,7 +2019,7 @@ input{
                 <div></div>
                 <div>
                   <label style="color: var(--color1)">
-                    <span class="lang lang_fr">Activité 1.2:</span>
+                    <span class="lang lang_fr">Activit&eacute; 1.2:</span>
                     <span class="lang lang_en">Activity 1.2:</span>
                     <label id="ope12DropResultCopy0"></label>
                     <label id="ope12ResultCopy0"></label>
@@ -2050,16 +2050,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2093,7 +2093,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2123,7 +2123,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2151,16 +2151,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                          <option class="lang lang_fr" value="listen">écouter</option>
+                          <option class="lang lang_fr" value="listen">&eacute;couter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
-                          <option class="lang lang_fr" value="study">étudier</option>
+                          <option class="lang lang_fr" value="study">&eacute;tudier</option>
                           <option class="lang lang_fr" value="analyse">analyser</option>
 
-                          <option class="lang lang_fr" value="move">se déplacer</option>
+                          <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                           <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                          <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                          <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                           <option class="lang lang_fr" value="other">autre</option>
                           <option class="lang lang_fr" value="X">X</option>
@@ -2195,7 +2195,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2225,7 +2225,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2255,16 +2255,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2299,7 +2299,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2329,7 +2329,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2357,16 +2357,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2401,7 +2401,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -2431,7 +2431,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -2461,16 +2461,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2505,7 +2505,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2535,7 +2535,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2563,16 +2563,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2607,7 +2607,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2637,7 +2637,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2667,16 +2667,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2711,7 +2711,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2741,7 +2741,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2769,16 +2769,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -2813,7 +2813,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2843,7 +2843,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -2854,7 +2854,7 @@ input{
 
             <div class="tf-tree">
               <label style="font-size: 12px; text-decoration: underline">
-                <span class="lang lang_fr">Décomposition complète de la sous-tâche</span>
+                <span class="lang lang_fr">D&eacute;composition compl&egrave;te de la sous-t&acirc;che</span>
                 <span class="lang lang_en">Complete decomposition of the sub-task</span>
               </label>
               <ul id="actLevel">
@@ -2969,7 +2969,7 @@ input{
 
           <div id="zoneDecompo-t2" style="border-color: var(--color2); border-style: solid; padding:0.5%; padding-bottom: -5%">
             <label style="font-weight: bold; color: var(--color2); font-size: 20px">
-                  <span class="lang lang_fr">Sous-tâche 2:</span>
+                  <span class="lang lang_fr">Sous-t&acirc;che 2:</span>
                   <span class="lang lang_en">Sub-task 2:</span>
                   <label id="act2DropResultCopy0"></label>
                   <label id="act2ResultCopy0"></label>
@@ -2978,7 +2978,7 @@ input{
             <div class="parent"> 
               <div>
                 <label style="font-weight: bold">
-                  <span class="lang lang_fr">Activités (Act)</span>
+                  <span class="lang lang_fr">Activit&eacute;s (Act)</span>
                   <span class="lang lang_en">Activities (Act)</span>
                 </label>
                 <br/>
@@ -3015,17 +3015,17 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
-                      <option class="lang lang_fr" value="signaler">signaler</option>
+                      <option class="lang lang_fr" value="signal">signaler</option>
 
                       <option class="lang lang_fr" value="correct">corriger</option>
                       <option class="lang lang_fr" value="adjust">ajuster</option>
@@ -3073,17 +3073,17 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
-                      <option class="lang lang_fr" value="signaler">signaler</option>
+                      <option class="lang lang_fr" value="signal">signaler</option>
 
                       <option class="lang lang_fr" value="correct">corriger</option>
                       <option class="lang lang_fr" value="adjust">ajuster</option>
@@ -3102,7 +3102,7 @@ input{
 
               <div class="tf-tree">
                 <label style="font-size: 14px; text-decoration: underline">
-                    <span class="lang lang_fr">Décomposition de la sous-tâche en activités</span>
+                    <span class="lang lang_fr">D&eacute;composition de la sous-t&acirc;che en activit&eacute;s</span>
                     <span class="lang lang_en">Decomposition of the sub-task into activities</span>
                 </label>
                 <ul id="actLevel">
@@ -3122,7 +3122,7 @@ input{
             </div>
 
             <label style="font-weight: bold">
-              <span class="lang lang_fr">Opérations (Op) et actions primitives (AP)</span>
+              <span class="lang lang_fr">Op&eacute;rations (Op) et actions primitives (AP)</span>
               <span class="lang lang_en">Operations (Op) and primitive actions (AP)</span>
             </label>
 
@@ -3132,7 +3132,7 @@ input{
                 <br/>
                 <div>
                   <label style="color: var(--color2)">
-                    <span class="lang lang_fr">Activité 2.1:</span>
+                    <span class="lang lang_fr">Activit&eacute; 2.1:</span>
                     <span class="lang lang_en">Activity 2.1:</span>
                     <label id="ope21DropResultCopy0"></label>
                     <label id="ope21ResultCopy0"></label>
@@ -3141,7 +3141,7 @@ input{
                 <div></div>
                 <div>
                   <label style="color: var(--color2)">
-                    <span class="lang lang_fr">Activité 2.2:</span>
+                    <span class="lang lang_fr">Activit&eacute; 2.2:</span>
                     <span class="lang lang_en">Activity 2.2:</span>
                     <label id="ope22DropResultCopy0"></label>
                     <label id="ope22ResultCopy0"></label>
@@ -3171,16 +3171,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="observe">observer</option>
-                    <option class="lang lang_fr" value="listen">écouter</option>
+                    <option class="lang lang_fr" value="listen">&eacute;couter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
-                    <option class="lang lang_fr" value="study">étudier</option>
+                    <option class="lang lang_fr" value="study">&eacute;tudier</option>
                     <option class="lang lang_fr" value="analyse">analyser</option>
 
-                    <option class="lang lang_fr" value="move">se déplacer</option>
+                    <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                     <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                    <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                    <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                     <option class="lang lang_fr" value="other">autre</option>
                     <option class="lang lang_fr" value="X">X</option>
@@ -3215,7 +3215,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3245,7 +3245,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3273,16 +3273,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                          <option class="lang lang_fr" value="listen">écouter</option>
+                          <option class="lang lang_fr" value="listen">&eacute;couter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
-                          <option class="lang lang_fr" value="study">étudier</option>
+                          <option class="lang lang_fr" value="study">&eacute;tudier</option>
                           <option class="lang lang_fr" value="analyse">analyser</option>
 
-                          <option class="lang lang_fr" value="move">se déplacer</option>
+                          <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                           <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                          <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                          <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                           <option class="lang lang_fr" value="other">autre</option>
                           <option class="lang lang_fr" value="X">X</option>
@@ -3317,7 +3317,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3347,7 +3347,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3377,16 +3377,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -3421,7 +3421,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3451,7 +3451,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3479,16 +3479,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -3523,7 +3523,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -3553,7 +3553,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -3582,16 +3582,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                    <option class="lang lang_fr" value="listen">écouter</option>
+                    <option class="lang lang_fr" value="listen">&eacute;couter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
-                    <option class="lang lang_fr" value="study">étudier</option>
+                    <option class="lang lang_fr" value="study">&eacute;tudier</option>
                     <option class="lang lang_fr" value="analyse">analyser</option>
 
-                    <option class="lang lang_fr" value="move">se déplacer</option>
+                    <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                     <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                    <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                    <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                     <option class="lang lang_fr" value="other">autre</option>
                     <option class="lang lang_fr" value="X">X</option>
@@ -3626,7 +3626,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3656,7 +3656,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3683,16 +3683,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                    <option class="lang lang_fr" value="listen">écouter</option>
+                    <option class="lang lang_fr" value="listen">&eacute;couter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
-                    <option class="lang lang_fr" value="study">étudier</option>
+                    <option class="lang lang_fr" value="study">&eacute;tudier</option>
                     <option class="lang lang_fr" value="analyse">analyser</option>
 
-                    <option class="lang lang_fr" value="move">se déplacer</option>
+                    <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                     <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                    <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                    <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                     <option class="lang lang_fr" value="other">autre</option>
                     <option class="lang lang_fr" value="X">X</option>
@@ -3727,7 +3727,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3757,7 +3757,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3786,16 +3786,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                    <option class="lang lang_fr" value="listen">écouter</option>
+                    <option class="lang lang_fr" value="listen">&eacute;couter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
-                    <option class="lang lang_fr" value="study">étudier</option>
+                    <option class="lang lang_fr" value="study">&eacute;tudier</option>
                     <option class="lang lang_fr" value="analyse">analyser</option>
 
-                    <option class="lang lang_fr" value="move">se déplacer</option>
+                    <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                     <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                    <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                    <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                     <option class="lang lang_fr" value="other">autre</option>
                     <option class="lang lang_fr" value="X">X</option>
@@ -3829,7 +3829,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3859,7 +3859,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3887,16 +3887,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -3931,7 +3931,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3961,7 +3961,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -3973,7 +3973,7 @@ input{
 
             <div class="tf-tree">
               <label style="font-size: 12px; text-decoration: underline">
-                <span class="lang lang_fr">Décomposition complète de la sous-tâche</span>
+                <span class="lang lang_fr">D&eacute;composition compl&egrave;te de la sous-t&acirc;che</span>
                 <span class="lang lang_en">Complete decomposition of the sub-task</span>
               </label>
               <ul id="actLevel">
@@ -4089,7 +4089,7 @@ input{
 
           <div id="zoneDecompo-t3" style="border-color: var(--color3); border-style: solid; padding:0.5%; padding-bottom: -5%">
               <label style="font-weight: bold; color: var(--color3); font-size: 20px">
-                    <span class="lang lang_fr">Sous-tâche 3:</span>
+                    <span class="lang lang_fr">Sous-t&acirc;che 3:</span>
                     <span class="lang lang_en">Sub-task 3:</span>
                     <label id="act3DropResultCopy0"></label>
                     <label id="act3ResultCopy0"></label>
@@ -4099,7 +4099,7 @@ input{
               <div class="parent"> 
                 <div>
                   <label style="font-weight: bold">
-                    <span class="lang lang_fr">Activités (Act)</span>
+                    <span class="lang lang_fr">Activit&eacute;s (Act)</span>
                     <span class="lang lang_en">Activities (Act)</span>
                   </label>
                   <br/>
@@ -4118,14 +4118,14 @@ input{
                         <option class="lang lang_fr" value="explore">explorer</option>
 
                         <option class="lang lang_fr" value="identify">identifier</option>
-                        <option class="lang lang_fr" value="determine">déterminer</option>
+                        <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                         <option class="lang lang_fr" value="imagine">imaginer</option>
                         <option class="lang lang_fr" value="conceive">concevoir</option>
 
                         <option class="lang lang_fr" value="test">tester</option>
-                        <option class="lang lang_fr" value="verify">vérifier</option>
-                        <option class="lang lang_fr" value="sample">échantilloner</option>
+                        <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                        <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                         <option class="lang lang_fr" value="annotate">annoter</option>
                         <option class="lang lang_fr" value="signal">signaler</option>
@@ -4158,17 +4158,17 @@ input{
                         <option class="lang lang_fr" value="explore">explorer</option>
 
                         <option class="lang lang_fr" value="identify">identifier</option>
-                        <option class="lang lang_fr" value="determine">déterminer</option>
+                        <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                         <option class="lang lang_fr" value="imagine">imaginer</option>
                         <option class="lang lang_fr" value="conceive">concevoir</option>
 
                         <option class="lang lang_fr" value="test">tester</option>
-                        <option class="lang lang_fr" value="verify">vérifier</option>
-                        <option class="lang lang_fr" value="sample">échantilloner</option>
+                        <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                        <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                         <option class="lang lang_fr" value="annotate">annoter</option>
-                        <option class="lang lang_fr" value="signaler">signaler</option>
+                        <option class="lang lang_fr" value="signal">signaler</option>
 
                         <option class="lang lang_fr" value="correct">corriger</option>
                         <option class="lang lang_fr" value="adjust">ajuster</option>
@@ -4187,7 +4187,7 @@ input{
 
                 <div class="tf-tree">
                   <label style="font-size: 14px; text-decoration: underline">
-                      <span class="lang lang_fr">Décomposition de la sous-tâche en activités</span>
+                      <span class="lang lang_fr">D&eacute;composition de la sous-t&acirc;che en activit&eacute;s</span>
                       <span class="lang lang_en">Decomposition of the sub-task into activities</span>
                   </label>
                   <ul id="actLevel">
@@ -4207,7 +4207,7 @@ input{
               </div>
 
               <label style="font-weight: bold">
-                <span class="lang lang_fr">Opérations (Op) et actions primitives (AP)</span>
+                <span class="lang lang_fr">Op&eacute;rations (Op) et actions primitives (AP)</span>
                 <span class="lang lang_en">Operations (Op) and primitive actions (AP)</span>
               </label>
 
@@ -4217,7 +4217,7 @@ input{
                   <br/>
                   <div>
                     <label style="color: var(--color3)">
-                      <span class="lang lang_fr">Activité 3.1:</span>
+                      <span class="lang lang_fr">Activit&eacute; 3.1:</span>
                       <span class="lang lang_en">Activity 3.1:</span>
                       <label id="ope31DropResultCopy0"></label>
                       <label id="ope31ResultCopy0"></label>
@@ -4226,7 +4226,7 @@ input{
                   <div></div>
                   <div>
                     <label style="color: var(--color3)">
-                      <span class="lang lang_fr">Activité 3.2:</span>
+                      <span class="lang lang_fr">Activit&eacute; 3.2:</span>
                       <span class="lang lang_en">Activity 3.2:</span>
                       <label id="ope32DropResultCopy0"></label>
                       <label id="ope32ResultCopy0"></label>
@@ -4256,16 +4256,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4299,7 +4299,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4329,7 +4329,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4357,16 +4357,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                            <option class="lang lang_fr" value="listen">écouter</option>
+                            <option class="lang lang_fr" value="listen">&eacute;couter</option>
                             <option class="lang lang_fr" value="examine">examiner</option>
 
-                            <option class="lang lang_fr" value="study">étudier</option>
+                            <option class="lang lang_fr" value="study">&eacute;tudier</option>
                             <option class="lang lang_fr" value="analyse">analyser</option>
 
-                            <option class="lang lang_fr" value="move">se déplacer</option>
+                            <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                             <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                            <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                            <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                             <option class="lang lang_fr" value="other">autre</option>
                             <option class="lang lang_fr" value="X">X</option>
@@ -4401,7 +4401,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4431,7 +4431,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4461,16 +4461,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4505,7 +4505,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4535,7 +4535,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4563,16 +4563,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4607,7 +4607,7 @@ input{
                         <option class="lang lang_fr" value="hear">entendre</option>
 
                         <option class="lang lang_fr" value="think">penser</option>
-                        <option class="lang lang_fr" value="decide">décider</option>
+                        <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                         <option class="lang lang_fr" value="X">X</option>
                       </select>
@@ -4637,7 +4637,7 @@ input{
                         <option class="lang lang_fr" value="hear">entendre</option>
 
                         <option class="lang lang_fr" value="think">penser</option>
-                        <option class="lang lang_fr" value="decide">décider</option>
+                        <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                         <option class="lang lang_fr" value="X">X</option>
                       </select>
@@ -4667,16 +4667,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4711,7 +4711,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4741,7 +4741,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4769,16 +4769,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4813,7 +4813,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4843,7 +4843,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4873,16 +4873,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -4917,7 +4917,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4947,7 +4947,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -4975,16 +4975,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                      <option class="lang lang_fr" value="listen">écouter</option>
+                      <option class="lang lang_fr" value="listen">&eacute;couter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
-                      <option class="lang lang_fr" value="study">étudier</option>
+                      <option class="lang lang_fr" value="study">&eacute;tudier</option>
                       <option class="lang lang_fr" value="analyse">analyser</option>
 
-                      <option class="lang lang_fr" value="move">se déplacer</option>
+                      <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                       <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                      <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                      <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                       <option class="lang lang_fr" value="other">autre</option>
                       <option class="lang lang_fr" value="X">X</option>
@@ -5019,7 +5019,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -5049,7 +5049,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -5060,7 +5060,7 @@ input{
 
               <div class="tf-tree">
                 <label style="font-size: 12px; text-decoration: underline">
-                  <span class="lang lang_fr">Décomposition complète de la sous-tâche</span>
+                  <span class="lang lang_fr">D&eacute;composition compl&egrave;te de la sous-t&acirc;che</span>
                   <span class="lang lang_en">Complete decomposition of the sub-task</span>
                 </label>
                 <ul id="actLevel">
@@ -5176,7 +5176,7 @@ input{
 
           <div id="zoneDecompo-t4" style="border-color: var(--color4); border-style: solid; padding:0.5%; padding-bottom: -5%">
             <label style="font-weight: bold; color: var(--color4); font-size: 20px">
-                  <span class="lang lang_fr">Sous-tâche 4:</span>
+                  <span class="lang lang_fr">Sous-t&acirc;che 4:</span>
                   <span class="lang lang_en">Sub-task 4:</span>
                   <label id="act4DropResultCopy0"></label>
                   <label id="act4ResultCopy0"></label>
@@ -5185,7 +5185,7 @@ input{
             <div class="parent"> 
               <div>
                 <label style="font-weight: bold">
-                    <span class="lang lang_fr">Activités (Act)</span>
+                    <span class="lang lang_fr">Activit&eacute;s (Act)</span>
                     <span class="lang lang_en">Activities (Act)</span>
                 </label>
                 <br/>
@@ -5222,14 +5222,14 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
                       <option class="lang lang_fr" value="signal">signaler</option>
@@ -5279,17 +5279,17 @@ input{
                       <option class="lang lang_fr" value="explore">explorer</option>
 
                       <option class="lang lang_fr" value="identify">identifier</option>
-                      <option class="lang lang_fr" value="determine">déterminer</option>
+                      <option class="lang lang_fr" value="determine">d&eacute;terminer</option>
 
                       <option class="lang lang_fr" value="imagine">imaginer</option>
                       <option class="lang lang_fr" value="conceive">concevoir</option>
 
                       <option class="lang lang_fr" value="test">tester</option>
-                      <option class="lang lang_fr" value="verify">vérifier</option>
-                      <option class="lang lang_fr" value="sample">échantilloner</option>
+                      <option class="lang lang_fr" value="verify">v&eacute;rifier</option>
+                      <option class="lang lang_fr" value="sample">&eacute;chantilloner</option>
 
                       <option class="lang lang_fr" value="annotate">annoter</option>
-                      <option class="lang lang_fr" value="signaler">signaler</option>
+                      <option class="lang lang_fr" value="signal">signaler</option>
 
                       <option class="lang lang_fr" value="correct">corriger</option>
                       <option class="lang lang_fr" value="adjust">ajuster</option>
@@ -5307,7 +5307,7 @@ input{
 
               <div class="tf-tree">
                 <label style="font-size: 14px; text-decoration: underline">
-                    <span class="lang lang_fr">Décomposition de la sous-tâche en activités</span>
+                    <span class="lang lang_fr">D&eacute;composition de la sous-t&acirc;che en activit&eacute;s</span>
                     <span class="lang lang_en">Decomposition of the sub-task into activities</span>
                 </label>
                 <ul id="actLevel">
@@ -5330,7 +5330,7 @@ input{
             <br/>
 
             <label style="font-weight: bold">
-              <span class="lang lang_fr">Opérations (Op) et actions primitives (AP)</span>
+              <span class="lang lang_fr">Op&eacute;rations (Op) et actions primitives (AP)</span>
               <span class="lang lang_en">Operations (Op) and primitive actions (AP)</span>
             </label>
 
@@ -5339,7 +5339,7 @@ input{
                 <br/>
                 <div>
                   <label style="color: var(--color4)">
-                    <span class="lang lang_fr">Activité 4.1:</span>
+                    <span class="lang lang_fr">Activit&eacute; 4.1:</span>
                     <span class="lang lang_en">Activity 4.1:</span>
                     <label id="ope41DropResultCopy0"></label>
                     <label id="ope41ResultCopy0"></label>
@@ -5348,7 +5348,7 @@ input{
                 <div></div>
                 <div>
                   <label style="color: var(--color4)">
-                    <span class="lang lang_fr">Activité 4.2:</span>
+                    <span class="lang lang_fr">Activit&eacute; 4.2:</span>
                     <span class="lang lang_en">Activity 4.2:</span>
                     <label id="ope42DropResultCopy0"></label>
                     <label id="ope42ResultCopy0"></label>
@@ -5378,16 +5378,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                    <option class="lang lang_fr" value="listen">écouter</option>
+                    <option class="lang lang_fr" value="listen">&eacute;couter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
-                    <option class="lang lang_fr" value="study">étudier</option>
+                    <option class="lang lang_fr" value="study">&eacute;tudier</option>
                     <option class="lang lang_fr" value="analyse">analyser</option>
 
-                    <option class="lang lang_fr" value="move">se déplacer</option>
+                    <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                     <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                    <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                    <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                     <option class="lang lang_fr" value="other">autre</option>
                     <option class="lang lang_fr" value="X">X</option>
@@ -5422,7 +5422,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5452,7 +5452,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5480,16 +5480,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                          <option class="lang lang_fr" value="listen">écouter</option>
+                          <option class="lang lang_fr" value="listen">&eacute;couter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
-                          <option class="lang lang_fr" value="study">étudier</option>
+                          <option class="lang lang_fr" value="study">&eacute;tudier</option>
                           <option class="lang lang_fr" value="analyse">analyser</option>
 
-                          <option class="lang lang_fr" value="move">se déplacer</option>
+                          <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                           <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                          <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                          <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                           <option class="lang lang_fr" value="other">autre</option>
                           <option class="lang lang_fr" value="X">X</option>
@@ -5524,7 +5524,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5554,7 +5554,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5584,16 +5584,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -5628,7 +5628,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5658,7 +5658,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5686,16 +5686,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -5730,7 +5730,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -5760,7 +5760,7 @@ input{
                       <option class="lang lang_fr" value="hear">entendre</option>
 
                       <option class="lang lang_fr" value="think">penser</option>
-                      <option class="lang lang_fr" value="decide">décider</option>
+                      <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                       <option class="lang lang_fr" value="X">X</option>
                     </select>
@@ -5790,16 +5790,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -5834,7 +5834,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5864,7 +5864,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5892,16 +5892,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -5936,7 +5936,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5966,7 +5966,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -5996,16 +5996,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -6040,7 +6040,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -6070,7 +6070,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -6098,16 +6098,16 @@ input{
                         <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
-                        <option class="lang lang_fr" value="listen">écouter</option>
+                        <option class="lang lang_fr" value="listen">&eacute;couter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
 
-                        <option class="lang lang_fr" value="study">étudier</option>
+                        <option class="lang lang_fr" value="study">&eacute;tudier</option>
                         <option class="lang lang_fr" value="analyse">analyser</option>
 
-                        <option class="lang lang_fr" value="move">se déplacer</option>
+                        <option class="lang lang_fr" value="move">se d&eacute;placer</option>
                         <option class="lang lang_fr" value="use">utiliser (un outil)</option>
 
-                        <option class="lang lang_fr" value="summarise">résumer/regrouper</option>
+                        <option class="lang lang_fr" value="summarise">r&eacute;sumer/regrouper</option>
 
                         <option class="lang lang_fr" value="other">autre</option>
                         <option class="lang lang_fr" value="X">X</option>
@@ -6142,7 +6142,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -6172,7 +6172,7 @@ input{
                     <option class="lang lang_fr" value="hear">entendre</option>
 
                     <option class="lang lang_fr" value="think">penser</option>
-                    <option class="lang lang_fr" value="decide">décider</option>
+                    <option class="lang lang_fr" value="decide">d&eacute;cider</option>
 
                     <option class="lang lang_fr" value="X">X</option>
                   </select>
@@ -6183,7 +6183,7 @@ input{
 
             <div class="tf-tree">
               <label style="font-size: 12px; text-decoration: underline">
-                <span class="lang lang_fr">Décomposition complète de la sous-tâche</span>
+                <span class="lang lang_fr">D&eacute;composition compl&egrave;te de la sous-t&acirc;che</span>
                 <span class="lang lang_en">Complete decomposition of the sub-task</span>
               </label>
               <ul id="actLevel">
@@ -6297,12 +6297,12 @@ input{
 
 
             <!--<label style="font-weight: bold">
-              <span class="lang lang_fr">Actions primaires (= actions qui composent l'opération) - verbe + noms</span>
+              <span class="lang lang_fr">Actions primaires (= actions qui composent l'op&eacute;ration) - verbe + noms</span>
               <span class="lang lang_en">Task name: </span>
             </label>
             <br/>
             <label style="color: #933">
-              <span class="lang lang_fr">Chaque opération est composé d'au moins 2 actions primaires. <br/><br/> Ces actions sont soit <b>MOTRICES</b> (mouvements physiques du corps), soit <b>PERCEPTUELLES</b> (liées aux sens: vue, odorat, goût...), soit <b>COGNITIVES</b> (réflexion, analyse, décisions, déductions...).</span>
+              <span class="lang lang_fr">Chaque op&eacute;ration est compos&eacute; d'au moins 2 actions primaires. <br/><br/> Ces actions sont soit <b>MOTRICES</b> (mouvements physiques du corps), soit <b>PERCEPTUELLES</b> (li&eacute;es aux sens: vue, odorat, goût...), soit <b>COGNITIVES</b> (r&eacute;flexion, analyse, d&eacute;cisions, d&eacute;ductions...).</span>
               <span class="lang lang_en">Task name: </span>
             </label>
             <br/>
@@ -6324,7 +6324,7 @@ input{
                 <select id="thesaurus11a">
                   <option value=""></option>
 
-                  <option class="lang lang_fr" value="navigation-1">motrice-se déplacer</option>
+                  <option class="lang lang_fr" value="navigation-1">motrice-se d&eacute;placer</option>
                   <option class="lang lang_fr" value="navigation-2">motrice-drive</option>
 
                   <option class="lang lang_fr" value="selection-1">motrice-choisir</option>
@@ -6359,7 +6359,7 @@ input{
                 <select id="thesaurus11b">
                   <option value=""></option>
 
-                  <option class="lang lang_fr" value="navigation-1">motrice-se déplacer</option>
+                  <option class="lang lang_fr" value="navigation-1">motrice-se d&eacute;placer</option>
                   <option class="lang lang_fr" value="navigation-2">motrice-drive</option>
 
                   <option class="lang lang_fr" value="selection-1">motrice-choisir</option>
@@ -6402,7 +6402,7 @@ input{
           <br/>
 
           <button type="submit" style="font-size: 16px; padding: 0.5%">
-            <span class="lang lang_fr">Valider cette décomposition</span>
+            <span class="lang lang_fr">Valider cette d&eacute;composition</span>
             <span class="lang lang_en">Validate this decomposition</span>
           </button>
 
@@ -6417,12 +6417,12 @@ input{
         </h2>
 
         <h3 style="color:#FF69B4">
-            <span class="lang lang_fr">Etapes 2.1 (tri et séparation), 2.2 (formulaire), 2.3 (tableau)</span>
+            <span class="lang lang_fr">Etapes 2.1 (tri et s&eacute;paration), 2.2 (formulaire), 2.3 (tableau)</span>
             <span class="lang lang_en">Steps 2.1 (sorting and separation), 2.2 (form), 2.3 (table)</span>
         </h3>
 
         <label>
-            <span class="lang lang_fr">Les interactions motrices (se déplacer= navigation, prendre= selection, manier= manipulation) de la tache sont les suivantes:</span>
+            <span class="lang lang_fr">Les interactions motrices (se d&eacute;placer= navigation, prendre= selection, manier= manipulation) de la t&acirc;che sont les suivantes:</span>
             <span class="lang lang_en">The motor interactions (move=navigation, take=selection, handle=manipulation) of the task are the followings:</span>
         </label>
 
@@ -6472,7 +6472,7 @@ input{
             </select>
             <select id="v3">
               <option value=""></option>
-              <option class="lang lang_fr" value="predet">prédéfini(s)</option>
+              <option class="lang lang_fr" value="predet">pr&eacute;d&eacute;fini(s)</option>
               <option class="lang lang_fr" value="undet">inconnu(s)</option>
               <option class="lang lang_en" value="predet">known/predetermined</option>
               <option class="lang lang_en" value="undet">unknown</option>
@@ -6509,7 +6509,7 @@ input{
             </select>
             <select id="v3">
               <option value=""></option>
-              <option class="lang lang_fr" value="predet">prédéfini(s)</option>
+              <option class="lang lang_fr" value="predet">pr&eacute;d&eacute;fini(s)</option>
               <option class="lang lang_fr" value="undet">inconnu(s)</option>
               <option class="lang lang_en" value="predet">known/predetermined</option>
               <option class="lang lang_en" value="undet">unknown</option>
@@ -6533,7 +6533,7 @@ input{
             <span class="lang lang_en">Step 2.4</span>
         </h3>
         <label>
-          <span class="lang lang_fr">Dans cette étape, un expert en VR développe des applications à partir des recommandations données dans les tableaux ci-dessus.</span>
+          <span class="lang lang_fr">Dans cette &eacute;tape, un expert en VR d&eacute;veloppe des applications &agrave; partir des recommandations donn&eacute;es dans les tableaux ci-dessus.</span>
           <span class="lang lang_en">In this step, an VR expert develops applications based on the recommendations given above in the tables.</span>
         </label>
       </div>
@@ -6544,7 +6544,7 @@ input{
             <span class="lang lang_en">Step 3</span>
         </h2>
         <label>
-          <span class="lang lang_fr">Des experiences utilisateur sont faites sur les différentes applications développées afin de choisir les techniques d'interaction finales.</span>
+          <span class="lang lang_fr">Des exp&eacute;riences utilisateur sont faites sur les diff&eacute;rentes applications d&eacute;velopp&eacute;es afin de choisir les techniques d'interaction finales.</span>
           <span class="lang lang_en">User experiments are conducted on the different VR applications developed to choose the final interactions techniques.</span>
         </label>
       </div>
