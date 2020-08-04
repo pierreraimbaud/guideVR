@@ -207,8 +207,34 @@ input{
                 document.querySelectorAll(".lang_fr").forEach(ele=>ele.style.display="inline");
         }
       }
-      var items = [
+
+      var itemsNavFR = [
           ["controle direction/endroit ciblé(e) par", "n2", "n3", "n4"],
+          ["?", "?", "?", "?"],
+      ];
+
+      var itemsSelFR = [
+          ["outil", "n2", "n3", "n4"],
+          ["?", "?", "?", "?"],
+      ];
+
+      var itemsManFR = [
+          ["outil", "n2", "n3", "n4"],
+          ["?", "?", "?", "?"],
+      ];
+
+      var itemsNavEN = [
+          ["control by", "n2", "n3", "n4"],
+          ["?", "?", "?", "?"],
+      ];
+
+      var itemsSelEN = [
+          ["tool", "n2", "n3", "n4"],
+          ["?", "?", "?", "?"],
+      ];
+
+      var itemsManEN = [
+          ["tool", "n2", "n3", "n4"],
           ["?", "?", "?", "?"],
       ];
 
@@ -287,7 +313,7 @@ input{
             //console.log(k);
             //console.log(allAPCompls[index]);
             var comp = allAPCompls[index].substring(allAPCompls[index].lastIndexOf('-') + 1);
-            var s =allAPCompls[index].split('-', 1)[0]+" - Motor/moteur action = "+k.bold()+" + Complement = "+comp.bold();
+            var s = "AP "+ allAPCompls[index].split('-', 1)[0]+" => Type: Motor/motrice action = "+k.bold()+" + Complement = "+comp.bold();
             //console.log(s);
             allMotorInteract.push(s);
           }
@@ -307,166 +333,19 @@ input{
           var num = element.split('-', 1)[0];
 
           if (element.includes("navigation")){
-
-            //document.getElementById('formS3navigation11a').style.display="block";
-            //var step22=document.getElementById('listMotorActionsForm');
-
-            var form = document.createElement("form");
-            form.setAttribute("id", "formS3navigationNAV"+num);
-            form.setAttribute("onsubmit","validateFormNAV('"+num+"');return false");
-
-            //1
-            var label = document.createElement("label");
-            var spanFR = document.createElement("span");
-            spanFR.innerHTML="Type de distance:";  
-            spanFR.setAttribute("class", "lang lang_fr");
-            var spanEN = document.createElement("span");
-            spanEN.innerHTML="Kind of distance:";
-            spanEN.setAttribute("class", "lang lang_en");
-            label.appendChild(spanFR);
-            label.appendChild(spanEN);
-            form.appendChild(label);
-
-            var select = document.createElement("select");
-            select.setAttribute("style", "width:10%");
-            select.setAttribute("id", "v1");
-            form.appendChild(select);
-
-            var option1FR = document.createElement("option");
-            option1FR.setAttribute("class", "lang lang_fr");
-            option1FR.setAttribute("value", "short distances (<3m)");
-            option1FR.textContent="petites distances (<3m)";
-
-            var option2FR = document.createElement("option");
-            option2FR.setAttribute("class", "lang lang_fr");
-            option2FR.setAttribute("value", "long distances (>3m)");
-            option2FR.textContent="grandes distances (>3m)";
-
-            var option1EN = document.createElement("option");
-            option1EN.setAttribute("class", "lang lang_en");
-            option1EN.setAttribute("value", "short distances (<3m)");
-            option1EN.textContent="short distances (<3m)";
-
-            var option2EN = document.createElement("option");
-            option2EN.setAttribute("class", "lang lang_en");
-            option2EN.setAttribute("value", "long distances (>3m)");
-            option2EN.textContent="long distances (>3m)";
-
-            select.appendChild(option1FR);
-            select.appendChild(option2FR);
-            select.appendChild(option1EN);
-            select.appendChild(option2EN);
-
-
-
-            //2
-            var label = document.createElement("label");
-            var spanFR = document.createElement("span");
-            spanFR.innerHTML="Objectif spatial:";  
-            spanFR.setAttribute("class", "lang lang_fr");
-            var spanEN = document.createElement("span");
-            spanEN.innerHTML="Spatial objectif:";
-            spanEN.setAttribute("class", "lang lang_en");
-            label.appendChild(spanFR);
-            label.appendChild(spanEN);
-            form.appendChild(label);
-
-            var select = document.createElement("select");
-            select.setAttribute("style", "width:10%");
-            select.setAttribute("id", "v2");
-            form.appendChild(select);
-
-            var option1FR = document.createElement("option");
-            option1FR.setAttribute("class", "lang lang_fr");
-            option1FR.setAttribute("value", "path");
-            option1FR.textContent="chemin";
-
-            var option2FR = document.createElement("option");
-            option2FR.setAttribute("class", "lang lang_fr");
-            option2FR.setAttribute("value", "final destination");
-            option2FR.textContent="destination finale";
-
-            var option1EN = document.createElement("option");
-            option1EN.setAttribute("class", "lang lang_en");
-            option1EN.setAttribute("value", "path");
-            option1EN.textContent="path";
-
-            var option2EN = document.createElement("option");
-            option2EN.setAttribute("class", "lang lang_en");
-            option2EN.setAttribute("value", "final destination");
-            option2EN.textContent="final destination";
-
-            select.appendChild(option1FR);
-            select.appendChild(option2FR);
-            select.appendChild(option1EN);
-            select.appendChild(option2EN);
-
-            //3
-            var label = document.createElement("label");
-            var spanFR = document.createElement("span");
-            spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
-            spanFR.setAttribute("class", "lang lang_fr");
-            var spanEN = document.createElement("span");
-            spanEN.innerHTML="Target objectif (element to find):";
-            spanEN.setAttribute("class", "lang lang_en");
-            label.appendChild(spanFR);
-            label.appendChild(spanEN);
-            form.appendChild(label);
-
-            var select = document.createElement("select");
-            select.setAttribute("style", "width:10%");
-            select.setAttribute("id", "v3");
-            form.appendChild(select);
-
-            var option1FR = document.createElement("option");
-            option1FR.setAttribute("class", "lang lang_fr");
-            option1FR.setAttribute("value", "unknown target(s)");
-            option1FR.textContent="cible(s) non prédéterminée(s)";
-
-            var option2FR = document.createElement("option");
-            option2FR.setAttribute("class", "lang lang_fr");
-            option2FR.setAttribute("value", "known (predetermined) target(s)");
-            option2FR.textContent="cible(s) prédéterminée(s)";
-
-            var option1EN = document.createElement("option");
-            option1EN.setAttribute("class", "lang lang_en");
-            option1EN.setAttribute("value", "unknown target(s)");
-            option1EN.textContent="unknown target(s)";
-
-            var option2EN = document.createElement("option");
-            option2EN.setAttribute("class", "lang lang_en");
-            option2EN.setAttribute("value", "known (predetermined) target(s)");
-            option2EN.textContent="known (predetermined) target(s)";
-
-            select.appendChild(option1FR);
-            select.appendChild(option2FR);
-            select.appendChild(option1EN);
-            select.appendChild(option2EN);
-
-            li.appendChild(form);
-
-
-            var validate22to23button = document.createElement("button");
-            form.appendChild(validate22to23button);
-
-            var spanFR = document.createElement("span");
-            spanFR.innerHTML="Valider";  
-            spanFR.setAttribute("class", "lang lang_fr");
-            var spanEN = document.createElement("span");
-            spanEN.innerHTML="Validate";
-            spanEN.setAttribute("class", "lang lang_en");
-            validate22to23button.appendChild(spanFR);
-            validate22to23button.appendChild(spanEN);
-
-            validate22to23button.setAttribute("type", "submit");
-
-            showPageIn();
+            create22QuestionsSelectNAV(li, num);            
           }
+          else if (element.includes("selection")){
+            create22QuestionsSelectSEL(li, num);            
+          }
+          else if (element.includes("manipulation")){
+            create22QuestionsSelectMAN(li, num);            
+          }        
 
-          
 
+        });
 
-          });
+        showPageIn();
 
 
         //allAPVerbs.forEach(element => console.log(getKindOfMotor(element)));
@@ -518,15 +397,520 @@ input{
            
       }
 
-      function validateFormNAV(idFather) {
-        var s= "formS3navigationNAV"+idFather;
+      function create22QuestionsSelectSEL(li, num){
+        var form = document.createElement("form");
+        form.setAttribute("id", "formS22step"+num);
+        form.setAttribute("onsubmit","validateForm('"+num+"','selection');return false");
 
-        var v1 = document.forms[s]["v1"].value;
-        var v2 = document.forms[s]["v2"].value;
-        var v3 = document.forms[s]["v3"].value;
-        populateMetCharacValues(v1,v2,v3);
-        //create
-        var table = createTable(items, idFather);
+        //1
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Type de distance:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Kind of distance:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v1");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "short distances (<3m)");
+        option1FR.textContent="petites distances (<3m)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "long distances (>3m)");
+        option2FR.textContent="grandes distances (>3m)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "short distances (<3m)");
+        option1EN.textContent="short distances (<3m)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "long distances (>3m)");
+        option2EN.textContent="long distances (>3m)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+
+
+        //2
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Spatial objectif:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v2");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "path");
+        option1FR.textContent="chemin";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "final destination");
+        option2FR.textContent="destination finale";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "path");
+        option1EN.textContent="path";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "final destination");
+        option2EN.textContent="final destination";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        //3
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Target objectif (element to find):";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v3");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.textContent="cible(s) non prédéterminée(s)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.textContent="cible(s) prédéterminée(s)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.textContent="unknown target(s)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.textContent="known (predetermined) target(s)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        li.appendChild(form);
+
+
+        var validate22to23button = document.createElement("button");
+        form.appendChild(validate22to23button);
+
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Valider";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Validate";
+        spanEN.setAttribute("class", "lang lang_en");
+        validate22to23button.appendChild(spanFR);
+        validate22to23button.appendChild(spanEN);
+
+        validate22to23button.setAttribute("type", "submit");
+      }
+      function create22QuestionsSelectMAN(li, num){
+        var form = document.createElement("form");
+        form.setAttribute("id", "formS22step"+num);
+        form.setAttribute("onsubmit","validateForm('"+num+"','manipulation');return false");
+
+        //1
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Type de distance:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Kind of distance:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v1");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "short distances (<3m)");
+        option1FR.textContent="petites distances (<3m)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "long distances (>3m)");
+        option2FR.textContent="grandes distances (>3m)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "short distances (<3m)");
+        option1EN.textContent="short distances (<3m)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "long distances (>3m)");
+        option2EN.textContent="long distances (>3m)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+
+
+        //2
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Spatial objectif:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v2");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "path");
+        option1FR.textContent="chemin";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "final destination");
+        option2FR.textContent="destination finale";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "path");
+        option1EN.textContent="path";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "final destination");
+        option2EN.textContent="final destination";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        //3
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Target objectif (element to find):";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v3");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.textContent="cible(s) non prédéterminée(s)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.textContent="cible(s) prédéterminée(s)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.textContent="unknown target(s)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.textContent="known (predetermined) target(s)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        li.appendChild(form);
+
+
+        var validate22to23button = document.createElement("button");
+        form.appendChild(validate22to23button);
+
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Valider";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Validate";
+        spanEN.setAttribute("class", "lang lang_en");
+        validate22to23button.appendChild(spanFR);
+        validate22to23button.appendChild(spanEN);
+
+        validate22to23button.setAttribute("type", "submit");
+      }
+
+      function create22QuestionsSelectNAV(li, num){
+        //document.getElementById('formS3navigation11a').style.display="block";
+            //var step22=document.getElementById('listMotorActionsForm');
+
+        var form = document.createElement("form");
+        form.setAttribute("id", "formS22step"+num);
+        form.setAttribute("onsubmit","validateForm('"+num+"','navigation');return false");
+
+        //1
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Type de distance:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Kind of distance:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v1");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "short distances (<3m)");
+        option1FR.textContent="petites distances (<3m)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "long distances (>3m)");
+        option2FR.textContent="grandes distances (>3m)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "short distances (<3m)");
+        option1EN.textContent="short distances (<3m)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "long distances (>3m)");
+        option2EN.textContent="long distances (>3m)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+
+
+        //2
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Spatial objectif:";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v2");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "path");
+        option1FR.textContent="chemin";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "final destination");
+        option2FR.textContent="destination finale";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "path");
+        option1EN.textContent="path";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "final destination");
+        option2EN.textContent="final destination";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        //3
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Target objectif (element to find):";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v3");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.textContent="cible(s) non prédéterminée(s)";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.textContent="cible(s) prédéterminée(s)";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.textContent="unknown target(s)";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.textContent="known (predetermined) target(s)";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        li.appendChild(form);
+
+
+        var validate22to23button = document.createElement("button");
+        form.appendChild(validate22to23button);
+
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Valider";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Validate";
+        spanEN.setAttribute("class", "lang lang_en");
+        validate22to23button.appendChild(spanFR);
+        validate22to23button.appendChild(spanEN);
+
+        validate22to23button.setAttribute("type", "submit");
+
+      }
+
+      function validateForm(idFather, kindOfMotorInt) {
+        
+        var s= "formS22step"+idFather;
+        
+        var drop1 = document.forms[s]["v1"];
+        var drop2 = document.forms[s]["v2"];
+        var drop3 = document.forms[s]["v3"];
+        var drop4 = document.forms[s]["v4"];
+        var drop5 = document.forms[s]["v5"];
+
+        var v1, v2, v3, v4, v5;
+
+        if (drop1!=undefined){
+          v1 = drop1.value;
+        }
+
+        if (drop2!=undefined){
+          v2 = drop2.value;
+        }
+
+        if (drop3!=undefined){
+          v3 = drop3.value;
+        }
+
+        if (drop4!=undefined){
+          v4 = drop4.value;
+        }
+
+        if (drop5!=undefined){
+          v5= drop5.value;
+        }
+
+        var table;
+
+        if (kindOfMotorInt==="navigation"){
+          var it = lang === "fr" ? itemsNavFR : itemsNavEN;
+          resetItems(it);
+          applyNAVRulesFromValues(it, v1,v2,v3);
+          //create
+          table = createTable(it, idFather);
+        }
+
+        else if (kindOfMotorInt==="selection"){
+          var it = lang === "fr" ? itemsSelFR : itemsSelEN;
+          resetItems(it);
+          applySELRulesFromValues(it, v1,v2,v3);
+          //create
+          table = createTable(it, idFather);
+        }
+
+        else if (kindOfMotorInt==="manipulation"){
+          var it = lang === "fr" ? itemsManFR : itemsManEN;
+          resetItems(it);
+          applyMANRulesFromValues(it, v1,v2,v3);
+          //create
+          table = createTable(it, idFather);
+        }
+          
         //append
         var tableMetaphor= document.getElementById("tableMetaphor"+idFather);
 
@@ -534,30 +918,57 @@ input{
           tableMetaphor.parentNode.removeChild(tableMetaphor);
         }
 
-        document.getElementById(s).appendChild(table);
-        return false;
+        if (table!=undefined){
+          table.setAttribute("style", "margin: 2%");
+          document.getElementById(s).appendChild(table);
+        }
+        
+      }
+        
+        //return false;
         /*document.getElementById("tableMetaphor"+idFather).style.marginTop = "30px"; 
         document.getElementById("tableMetaphor"+idFather).style.marginBottom = "30px"; 
         document.getElementById("validateCaracInteracs"+idFather).disabled = true; */
-      }
+      
 
-      function unvalidateForm(idFather) {
-        resetItems(items);
+      /*function unvalidateForm(idFather) {
+        resetItemsNav(itemsNav);
         document.getElementById("formS3navigation"+idFather).reset();
         document.getElementById("validateCaracInteracs"+idFather).disabled = false; 
         document.getElementById("tableMetaphor"+idFather).remove();
 
-      }
+      }*/
 
       //HERE ARE THE RULES FOR NAV TODO
-      function populateMetCharacValues(v1, v2, v3){
+      function applyNAVRulesFromValues(it, v1, v2, v3){
         console.log(v1+";"+v2+";"+v3);
-        resetItems();
+        var fr = lang === "fr";
+
         if (v2=="path"){
-          items[1][0]="user";
+          it[1][0]= fr ? "utilisateur" : "user";
         }
-        
       }
+
+      //HERE ARE THE RULES FOR SEL TODO
+      function applySELRulesFromValues(it, v1, v2, v3){
+        console.log(v1+";"+v2+";"+v3);
+        var fr = lang === "fr";
+
+        if (v2=="path"){
+          it[1][0]=fr ? "main" : "hand";
+        }
+      }
+
+      //HERE ARE THE RULES FOR SEL TODO
+      function applyMANRulesFromValues(it, v1, v2, v3){
+        console.log(v1+";"+v2+";"+v3);
+        var fr = lang === "fr";
+
+        if (v2=="path"){
+          it[1][0]=fr ? "eee" : "ffff";
+        }
+      }
+
       function showNextAddTX(){ 
         if(document.getElementById("txtT3").style.display== 'none'){
           document.getElementById("txtT3").style.display='inline';
@@ -596,7 +1007,7 @@ input{
       }
       
 
-      function resetItems(){
+      function resetItems(items){
         for (var i = 1 ; i< items.length; i++) {
           for (var j = 0 ; j< items.length; j++) {
             items[i][j]="?";
@@ -1265,13 +1676,17 @@ input{
                       <br/>
                       <p style="font-size: 14px">Exceptions: le choix "autre", qui permet d'écrire un verbe propre au domaine métier, ainsi que "agir (physiquement)" -également pour des actes propres au métier, n'offrent pas de suggestions automatique pour les niveaux suivants.</p>
                     </span>
-                    <span class="lang lang_en"><i>Recommendation/proposal</i>: a task can be decomposed here into a maximum of 4 subtasks.<br/>This decomposition can generally follow the following scheme, without necessarily including all these 4 types of subtasks:
+                    <span class="lang lang_en"><i>Important</i>: a task can be decomposed down into a maximum of 4 subtasks.<br/><br/>
+                    <i>Recommendation/proposal</i>: This decomposition can generally follow the following scheme, without necessarily including these 4 types of subtasks:
                       <ul>
-                        <li>ST 1 : "spatial" preparation => detect, locate</li>
-                        <li>ST 2 : "mental" preparation or preliminary test => understand, prepare</li>
-                        <li>ST 3 : action to solve the problem => to act (trade verbs to be used afterwards)</li>
-                        <li>ST 4 : finalisation => finalise, close</li>
+                        <li>Subtask 1 (ST 1): preparation "spatial" => detect, locate</li>
+                        <li>Subtask 2 (ST 2): "mental" preparation or pre-test => understand, prepare</li>
+                        <li>Subtask 3 (ST 3): action to solve the problem => act (activity domain verbs for next level of decomposition)</li>
+                        <li>Subtask 4 (ST 4): finalise => finalise, close</li>
                       </ul>
+                      <i>Help for the decomposition</i>: the above verbs are proposed in this list: when one of them is chosen, verbs are automatically proposed in the next steps of the decomposition, and so on until the last level (primitive actions). However, you can always change the choice that has been automatically proposed.
+                      <br/>
+                      <p style="font-size: 14px">Exceptions: the choice "other", which allows you to write a verb specific to the field of work, as well as "to act (physically)" - also for actions specific to the field of work, do not offer automatic suggestions for the next levels..</p>
                     </span>
                   </label>
                   <label style="border-color: var(--color1); border-style: solid">
@@ -1281,8 +1696,14 @@ input{
                   <select id="act1Drop" onchange="updateTree(id)">
                         <option value=""></option>
                         <option class="lang lang_en" value="detect">detect</option>
+                        <option class="lang lang_en" value="locate">locate</option>
                         <option class="lang lang_en" value="understand">understand</option>
+                        <option class="lang lang_en" value="prepare">prepare</option>
+                        <option class="lang lang_en" value="perform">perform/act</option>
+                        <option class="lang lang_en" value="finalise">finalise</option>
+                        <option class="lang lang_en" value="close">close</option>
                         <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="detect">détecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
@@ -1306,8 +1727,14 @@ input{
                   <select id="act2Drop" onchange="updateTree(id)">
                         <option value=""></option>
                         <option class="lang lang_en" value="detect">detect</option>
+                        <option class="lang lang_en" value="locate">locate</option>
                         <option class="lang lang_en" value="understand">understand</option>
+                        <option class="lang lang_en" value="prepare">prepare</option>
+                        <option class="lang lang_en" value="perform">perform/act</option>
+                        <option class="lang lang_en" value="finalise">finalise</option>
+                        <option class="lang lang_en" value="close">close</option>
                         <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="detect">détecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
@@ -1332,8 +1759,14 @@ input{
                   <select id="act3Drop" onchange="updateTree(id)">
                         <option value=""></option>
                         <option class="lang lang_en" value="detect">detect</option>
+                        <option class="lang lang_en" value="locate">locate</option>
                         <option class="lang lang_en" value="understand">understand</option>
+                        <option class="lang lang_en" value="prepare">prepare</option>
+                        <option class="lang lang_en" value="perform">perform/act</option>
+                        <option class="lang lang_en" value="finalise">finalise</option>
+                        <option class="lang lang_en" value="close">close</option>
                         <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="detect">détecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
@@ -1358,8 +1791,14 @@ input{
                   <select id="act4Drop" onchange="updateTree(id)">
                         <option value=""></option>
                         <option class="lang lang_en" value="detect">detect</option>
+                        <option class="lang lang_en" value="locate">locate</option>
                         <option class="lang lang_en" value="understand">understand</option>
+                        <option class="lang lang_en" value="prepare">prepare</option>
+                        <option class="lang lang_en" value="perform">perform/act</option>
+                        <option class="lang lang_en" value="finalise">finalise</option>
+                        <option class="lang lang_en" value="close">close</option>
                         <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="detect">détecter</option>
                         <option class="lang lang_fr" value="locate">localiser</option>
@@ -1426,12 +1865,30 @@ input{
                 <select id="ope11Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -1465,12 +1922,30 @@ input{
                 <select id="ope12Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -1559,6 +2034,21 @@ input{
                   <select id="st111Drop" onchange="updateTree(id)">
                         <option value=""></option>
 
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
                         <option class="lang lang_fr" value="examine">examiner</option>
@@ -1583,6 +2073,18 @@ input{
                   <select id="ap1111Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1600,6 +2102,18 @@ input{
                   <label>╚ AP 1.1.1.2: </label>
                   <select id="ap1112Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -1619,9 +2133,24 @@ input{
                 <div id="st121div" class="case">
                     <label>Op. 1.2.1: </label>
                     <select id="st121Drop" onchange="updateTree(id)">
-                          <option value=""></option>
+                        <option value=""></option>
 
-                          <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                           <option class="lang lang_fr" value="listen">écouter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -1646,6 +2175,18 @@ input{
                   <select id="ap1211Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1663,6 +2204,18 @@ input{
                   <label>╚ AP 1.2.1.2: </label>
                   <select id="ap1212Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -1685,6 +2238,21 @@ input{
                   <label>Op. 1.1.2: </label>
                   <select id="st112Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -1711,6 +2279,18 @@ input{
                   <select id="ap1121Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1728,6 +2308,18 @@ input{
                   <label>╚ AP 1.1.2.2: </label>
                   <select id="ap1122Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -1748,6 +2340,21 @@ input{
                   <label>Op. 1.2.2: </label>
                     <select id="st122Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -1774,7 +2381,19 @@ input{
                     <select id="ap1221Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -1792,7 +2411,19 @@ input{
                     <select id="ap1222Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -1813,6 +2444,21 @@ input{
                   <label>Op. 1.1.3: </label>
                   <select id="st113Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -1839,6 +2485,18 @@ input{
                   <select id="ap1131Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1856,6 +2514,18 @@ input{
                   <label>╚ AP 1.1.3.2: </label>
                   <select id="ap1132Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -1876,6 +2546,21 @@ input{
                   <label>Op. 1.2.3: </label>
                   <select id="st123Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -1902,6 +2587,18 @@ input{
                   <select id="ap1231Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1919,6 +2616,18 @@ input{
                   <label>╚ AP 1.2.3.2: </label>
                   <select id="ap1232Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -1941,6 +2650,21 @@ input{
                   <label>Op. 1.1.4: </label>
                   <select id="st114Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -1967,6 +2691,18 @@ input{
                   <select id="ap1141Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -1984,6 +2720,18 @@ input{
                   <label>╚ AP 1.1.4.2: </label>
                   <select id="ap1142Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2004,6 +2752,21 @@ input{
                   <label>Op. 1.2.4: </label>
                   <select id="st124Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -2030,6 +2793,18 @@ input{
                   <select id="ap1241Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2047,6 +2822,18 @@ input{
                   <label>╚ AP 1.2.4.2: </label>
                   <select id="ap1242Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2199,12 +2986,30 @@ input{
                 <select id="ope21Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -2239,12 +3044,30 @@ input{
                 <select id="ope22Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -2332,6 +3155,20 @@ input{
                   <label>Op. 2.1.1 </label>
                   <select id="st211Drop" onchange="updateTree(id)">
                     <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="observe">observer</option>
                     <option class="lang lang_fr" value="listen">écouter</option>
@@ -2358,6 +3195,18 @@ input{
                   <select id="ap2111Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2375,6 +3224,18 @@ input{
                   <label>╚ AP 2.1.1.2: </label>
                   <select id="ap2112Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2396,7 +3257,22 @@ input{
                     <select id="st221Drop" onchange="updateTree(id)">
                           <option value=""></option>
 
-                          <option class="lang lang_fr" value="observe">observer</option>
+                          <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                           <option class="lang lang_fr" value="listen">écouter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -2421,6 +3297,18 @@ input{
                   <select id="ap2211Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2438,6 +3326,18 @@ input{
                   <label>╚ AP 2.2.1.2: </label>
                   <select id="ap2212Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2460,6 +3360,21 @@ input{
                   <label>Op. 2.1.2: </label>
                   <select id="st212Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -2486,6 +3401,18 @@ input{
                   <select id="ap2121Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2503,6 +3430,18 @@ input{
                   <label>╚ AP 2.1.2.2: </label>
                   <select id="ap2122Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2523,6 +3462,21 @@ input{
                   <label>Op. 2.2.2: </label>
                   <select id="st222Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -2549,7 +3503,19 @@ input{
                     <select id="ap2221Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -2567,7 +3533,19 @@ input{
                     <select id="ap2222Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -2588,8 +3566,22 @@ input{
                   <label>Op. 2.1.3: </label>
                   <select id="st213Drop" onchange="updateTree(id)">
                     <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
 
-                    <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                     <option class="lang lang_fr" value="listen">écouter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -2614,6 +3606,18 @@ input{
                   <select id="ap2131Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2631,6 +3635,18 @@ input{
                   <label>╚ AP 2.1.3.2: </label>
                   <select id="ap2132Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2651,8 +3667,22 @@ input{
                   <label>Op. 2.2.3: </label>
                   <select id="st223Drop" onchange="updateTree(id)">
                     <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
 
-                    <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                     <option class="lang lang_fr" value="listen">écouter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -2677,6 +3707,18 @@ input{
                   <select id="ap2231Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2694,6 +3736,18 @@ input{
                   <label>╚ AP 2.2.3.2: </label>
                   <select id="ap2232Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2716,8 +3770,22 @@ input{
                   <label>Op. 2.1.4: </label>
                   <select id="st214Drop" onchange="updateTree(id)">
                     <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
 
-                    <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                     <option class="lang lang_fr" value="listen">écouter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -2741,6 +3809,18 @@ input{
                   <select id="ap2141Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2758,6 +3838,18 @@ input{
                   <label>╚ AP 2.1.4.2: </label>
                   <select id="ap2142Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -2778,6 +3870,21 @@ input{
                   <label>Op. 2.2.4: </label>
                   <select id="st224Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -2804,6 +3911,18 @@ input{
                   <select id="ap2241Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -2821,6 +3940,18 @@ input{
                   <label>╚ AP 2.2.4.2: </label>
                   <select id="ap2242Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -3109,8 +4240,22 @@ input{
                     <label>Op. 3.1.1 </label>
                     <select id="st311Drop" onchange="updateTree(id)">
                       <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3134,7 +4279,19 @@ input{
                     <select id="ap3111Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3152,7 +4309,19 @@ input{
                     <select id="ap3112Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3172,7 +4341,22 @@ input{
                       <select id="st321Drop" onchange="updateTree(id)">
                             <option value=""></option>
 
-                            <option class="lang lang_fr" value="observe">observer</option>
+                            <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                             <option class="lang lang_fr" value="listen">écouter</option>
                             <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3197,7 +4381,19 @@ input{
                     <select id="ap3211Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3215,7 +4411,19 @@ input{
                     <select id="ap3212Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3237,7 +4445,22 @@ input{
                     <select id="st312Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3262,7 +4485,19 @@ input{
                     <select id="ap3121Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3280,7 +4515,19 @@ input{
                     <select id="ap3122Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3300,7 +4547,22 @@ input{
                     <select id="st322Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3325,7 +4587,19 @@ input{
                       <select id="ap3221Drop" onchange="updateTree(id)">
                         <option value=""></option>
 
-                        <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                        <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                         <option class="lang lang_fr" value="take">prendre</option>
                         <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3343,7 +4617,19 @@ input{
                       <select id="ap3222Drop" onchange="updateTree(id)">
                         <option value=""></option>
 
-                        <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                        <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                         <option class="lang lang_fr" value="take">prendre</option>
                         <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3365,7 +4651,22 @@ input{
                     <select id="st313Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3390,7 +4691,19 @@ input{
                     <select id="ap3131Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3408,7 +4721,19 @@ input{
                     <select id="ap3132Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3428,7 +4753,22 @@ input{
                     <select id="st323Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3453,7 +4793,19 @@ input{
                     <select id="ap3231Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3471,7 +4823,19 @@ input{
                     <select id="ap3232Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3493,7 +4857,22 @@ input{
                     <select id="st314Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3518,7 +4897,19 @@ input{
                     <select id="ap3141Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3536,7 +4927,19 @@ input{
                     <select id="ap3142Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3556,7 +4959,22 @@ input{
                     <select id="st324Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                       <option class="lang lang_fr" value="listen">écouter</option>
                       <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3581,7 +4999,19 @@ input{
                     <select id="ap3241Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3599,7 +5029,19 @@ input{
                     <select id="ap3242Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -3751,12 +5193,30 @@ input{
                 <select id="ope41Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -3790,12 +5250,30 @@ input{
                 <select id="ope42Drop" onchange="updateTree(id)">
                       <option value=""></option>
                       <option class="lang lang_en" value="search">search</option>
-                      <option class="lang lang_en" value="explore">explore</option>  
+                      <option class="lang lang_en" value="explore">explore</option>
 
                       <option class="lang lang_en" value="identify">identify</option>
+                      <option class="lang lang_en" value="determine">determine</option>
 
+                      <option class="lang lang_en" value="imagine">imagine</option>
                       <option class="lang lang_en" value="conceive">conceive</option>
-                      
+
+                      <option class="lang lang_en" value="test">test</option>
+                      <option class="lang lang_en" value="verify">verify</option>
+                      <option class="lang lang_en" value="sample">sample</option>
+
+                      <option class="lang lang_en" value="annotate">annotate</option>
+                      <option class="lang lang_en" value="signal">signal</option>
+
+                      <option class="lang lang_en" value="correct">correct</option>
+                      <option class="lang lang_en" value="adjust">adjust</option>
+
+                      <option class="lang lang_en" value="transmit">transmit</option>
+                      <option class="lang lang_en" value="report">report</option>
+                      <option class="lang lang_en" value="notify">notify</option>
+
+                      <option class="lang lang_en" value="other">other</option>
+                      <option class="lang lang_en" value="X">X</option>
 
                       <option class="lang lang_fr" value="search">chercher</option>
                       <option class="lang lang_fr" value="explore">explorer</option>
@@ -3884,8 +5362,22 @@ input{
                   <label>Op. 4.1.1 </label>
                   <select id="st411Drop" onchange="updateTree(id)">
                     <option value=""></option>
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
 
-                    <option class="lang lang_fr" value="observe">observer</option>
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                     <option class="lang lang_fr" value="listen">écouter</option>
                     <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3910,6 +5402,18 @@ input{
                   <select id="ap4111Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -3927,6 +5431,18 @@ input{
                   <label>╚ AP 4.1.1.2: </label>
                   <select id="ap4112Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -3948,7 +5464,22 @@ input{
                     <select id="st421Drop" onchange="updateTree(id)">
                           <option value=""></option>
 
-                          <option class="lang lang_fr" value="observe">observer</option>
+                          <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
+
+                        <option class="lang lang_fr" value="observe">observer</option>
                           <option class="lang lang_fr" value="listen">écouter</option>
                           <option class="lang lang_fr" value="examine">examiner</option>
 
@@ -3973,6 +5504,18 @@ input{
                   <select id="ap4211Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -3990,6 +5533,18 @@ input{
                   <label>╚ AP 4.2.1.2: </label>
                   <select id="ap4212Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4012,6 +5567,21 @@ input{
                   <label>Op. 4.1.2: </label>
                   <select id="st412Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4038,6 +5608,18 @@ input{
                   <select id="ap4121Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -4055,6 +5637,18 @@ input{
                   <label>╚ AP 4.1.2.2: </label>
                   <select id="ap4122Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4075,6 +5669,21 @@ input{
                   <label>Op. 4.2.2: </label>
                   <select id="st422Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4101,7 +5710,19 @@ input{
                     <select id="ap4221Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -4119,7 +5740,19 @@ input{
                     <select id="ap4222Drop" onchange="updateTree(id)">
                       <option value=""></option>
 
-                      <option class="lang lang_fr" value="travel">avancer/bouger</option>
+                      <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
+                    <option class="lang lang_fr" value="travel">avancer/bouger</option>
                       <option class="lang lang_fr" value="take">prendre</option>
                       <option class="lang lang_fr" value="handle">manier</option>
 
@@ -4140,6 +5773,21 @@ input{
                   <label>Op. 4.1.3: </label>
                   <select id="st413Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4166,6 +5814,18 @@ input{
                   <select id="ap4131Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -4183,6 +5843,18 @@ input{
                   <label>╚ AP 4.1.3.2: </label>
                   <select id="ap4132Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4203,6 +5875,21 @@ input{
                   <label>Op. 4.2.3: </label>
                   <select id="st423Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4229,6 +5916,18 @@ input{
                   <select id="ap4231Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -4246,6 +5945,18 @@ input{
                   <label>╚ AP 3.2.3.2: </label>
                   <select id="ap4232Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4268,6 +5979,21 @@ input{
                   <label>Op. 4.1.4: </label>
                   <select id="st414Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4294,6 +6020,18 @@ input{
                   <select id="ap4141Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -4311,6 +6049,18 @@ input{
                   <label>╚ AP 4.1.4.2: </label>
                   <select id="ap4142Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4331,6 +6081,21 @@ input{
                   <label>Op. 4.2.4: </label>
                   <select id="st424Drop" onchange="updateTree(id)">
                         <option value=""></option>
+
+                        <option class="lang lang_en" value="observe">observe</option>
+                        <option class="lang lang_en" value="listen">listen</option>
+                        <option class="lang lang_en" value="examine">examine</option>
+
+                        <option class="lang lang_en" value="study">study</option>
+                        <option class="lang lang_en" value="analyse">analyse</option>
+
+                        <option class="lang lang_en" value="move">move</option>
+                        <option class="lang lang_en" value="use">use (a tool)</option>
+
+                        <option class="lang lang_en" value="summarise">summarise</option>
+
+                        <option class="lang lang_en" value="other">other</option>
+                        <option class="lang lang_en" value="X">X</option>
 
                         <option class="lang lang_fr" value="observe">observer</option>
                         <option class="lang lang_fr" value="listen">écouter</option>
@@ -4357,6 +6122,18 @@ input{
                   <select id="ap4241Drop" onchange="updateTree(id)">
                     <option value=""></option>
 
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
+
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
                     <option class="lang lang_fr" value="handle">manier</option>
@@ -4374,6 +6151,18 @@ input{
                   <label>╚ AP 4.2.4.2: </label>
                   <select id="ap4242Drop" onchange="updateTree(id)">
                     <option value=""></option>
+
+                    <option class="lang lang_en" value="travel">travel</option>
+                    <option class="lang lang_en" value="take">take</option>
+                    <option class="lang lang_en" value="handle">handle</option>
+
+                    <option class="lang lang_en" value="see">see</option>
+                    <option class="lang lang_en" value="hear">hear</option>
+
+                    <option class="lang lang_en" value="think">think</option>
+                    <option class="lang lang_en" value="decide">decide</option>
+
+                    <option class="lang lang_en" value="X">X</option>
 
                     <option class="lang lang_fr" value="travel">avancer/bouger</option>
                     <option class="lang lang_fr" value="take">prendre</option>
@@ -4625,13 +6414,13 @@ input{
         </h2>
 
         <h3 style="color:#FF69B4">
-            <span class="lang lang_fr">Etape 2.1</span>
-            <span class="lang lang_en">Step 2.1</span>
+            <span class="lang lang_fr">Etapes 2.1 (tri et séparation), 2.2 (formulaire), 2.3 (tableau)</span>
+            <span class="lang lang_en">Steps 2.1 (sorting and separation), 2.2 (form), 2.3 (table)</span>
         </h3>
 
         <label>
             <span class="lang lang_fr">Les interactions motrices (se déplacer= navigation, prendre= selection, manier= manipulation) de la tache sont les suivantes:</span>
-            <span class="lang lang_en">Les interactions motrices (se déplacer= navigation, prendre= selection, manier= manipulation) de la tache sont les suivantes:</span>
+            <span class="lang lang_en">The motor interactions (move=navigation, take=selection, handle=manipulation) of the task are the followings:</span>
         </label>
 
         <div id="listMotorActionsDiv">
@@ -4741,8 +6530,8 @@ input{
             <span class="lang lang_en">Step 2.4</span>
         </h3>
         <label>
-          <span class="lang lang_fr">Doit etre fait avec un developpeur VR</span>
-          <span class="lang lang_en">Doit etre fait avec un developpeur VR</span>
+          <span class="lang lang_fr">Dans cette étape, un expert en VR développe des applications à partir des recommandations données dans les tableaux ci-dessus.</span>
+          <span class="lang lang_en">In this step, an VR expert develops applications based on the recommendations given above in the tables.</span>
         </label>
       </div>
 
@@ -4752,8 +6541,8 @@ input{
             <span class="lang lang_en">Step 3</span>
         </h2>
         <label>
-          <span class="lang lang_fr">Experiences utilisateur (cf github)</span>
-          <span class="lang lang_en">Experiences utilisateur (cf github)</span>
+          <span class="lang lang_fr">Des experiences utilisateur sont faites sur les différentes applications développées afin de choisir les techniques d'interaction finales.</span>
+          <span class="lang lang_en">User experiments are conducted on the different VR applications developed to choose the final interactions techniques.</span>
         </label>
       </div>
     </main>
