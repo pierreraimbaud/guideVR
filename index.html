@@ -407,10 +407,10 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Type de distance:";  
+        spanFR.innerHTML="Distance objet-utilisateur";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Kind of distance:";
+        spanEN.innerHTML="Distance object-user:";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -423,38 +423,36 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "short distances (<3m)");
-        option1FR.textContent="petites distances (<3m)";
+        option1FR.setAttribute("value", "arm");
+        option1FR.textContent="à portée de bras";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "long distances (>3m)");
-        option2FR.textContent="grandes distances (>3m)";
+        option2FR.setAttribute("value", "out");
+        option2FR.textContent="hors de portée de bras";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "short distances (<3m)");
-        option1EN.textContent="short distances (<3m)";
+        option1EN.setAttribute("value", "arm");
+        option1EN.textContent="arm-reachable";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "long distances (>3m)");
-        option2EN.textContent="long distances (>3m)";
+        option2EN.setAttribute("value", "out");
+        option2EN.textContent="out of the arm reach";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
         select.appendChild(option1EN);
         select.appendChild(option2EN);
 
-
-
         //2
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.innerHTML="Taille des cibles (objets)";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Spatial objectif:";
+        spanEN.innerHTML="Size of the targets";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -467,23 +465,23 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "path");
-        option1FR.textContent="chemin";
+        option1FR.setAttribute("value", "hand");
+        option1FR.textContent="moins grands qu'une main";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "final destination");
-        option2FR.textContent="destination finale";
+        option2FR.setAttribute("value", "large");
+        option2FR.textContent="grands objets";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "path");
+        option1EN.setAttribute("value", "hand");
         option1EN.textContent="path";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "final destination");
-        option2EN.textContent="final destination";
+        option2EN.setAttribute("value", "large");
+        option2EN.textContent="large objects";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
@@ -493,10 +491,10 @@ input{
         //3
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
+        spanFR.innerHTML="Etat de l'environnement";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Target objectif (element to find):";
+        spanEN.innerHTML="Environment state";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -509,23 +507,23 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "unknown");
-        option1FR.textContent="cible(s) non prédéterminée(s)";
+        option1FR.setAttribute("value", "sparse");
+        option1FR.textContent="peu d'objets";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "known");
-        option2FR.textContent="cible(s) prédéterminée(s)";
+        option2FR.setAttribute("value", "dense");
+        option2FR.textContent="dense en objets";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "unknown");
-        option1EN.textContent="unknown target(s)";
+        option1EN.setAttribute("value", "sparse");
+        option1EN.textContent="sparse";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "known");
-        option2EN.textContent="known (predetermined) target(s)";
+        option2EN.setAttribute("value", "dense");
+        option2EN.textContent="dense";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
@@ -549,6 +547,8 @@ input{
 
         validate22to23button.setAttribute("type", "submit");
       }
+
+
       function create22QuestionsSelectMAN(li, num){
         var form = document.createElement("form");
         form.setAttribute("id", "formS22step"+num);
@@ -557,10 +557,10 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Type de distance:";  
+        spanFR.innerHTML="Distance objet-utilisateur";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Kind of distance:";
+        spanEN.innerHTML="Distance object-user:";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -573,38 +573,36 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "short distances (<3m)");
-        option1FR.textContent="petites distances (<3m)";
+        option1FR.setAttribute("value", "arm");
+        option1FR.textContent="à portée de bras";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "long distances (>3m)");
-        option2FR.textContent="grandes distances (>3m)";
+        option2FR.setAttribute("value", "out");
+        option2FR.textContent="hors de portée de bras";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "short distances (<3m)");
-        option1EN.textContent="short distances (<3m)";
+        option1EN.setAttribute("value", "arm");
+        option1EN.textContent="arm-reachable";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "long distances (>3m)");
-        option2EN.textContent="long distances (>3m)";
+        option2EN.setAttribute("value", "out");
+        option2EN.textContent="out of the arm reach";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
         select.appendChild(option1EN);
         select.appendChild(option2EN);
 
-
-
         //2
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.innerHTML="Portée nécessaire de déplacement";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Spatial objectif:";
+        spanEN.innerHTML="Range required to handle the object";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -617,23 +615,23 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "path");
-        option1FR.textContent="chemin";
+        option1FR.setAttribute("value", "arm");
+        option1FR.textContent="à portée de bras";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "final destination");
-        option2FR.textContent="destination finale";
+        option2FR.setAttribute("value", "out");
+        option2FR.textContent="hors de portée de bras";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "path");
-        option1EN.textContent="path";
+        option1EN.setAttribute("value", "arm");
+        option1EN.textContent="arm-reachable";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "final destination");
-        option2EN.textContent="final destination";
+        option2EN.setAttribute("value", "out");
+        option2EN.textContent="out of the arm reach";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
@@ -643,10 +641,10 @@ input{
         //3
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Objectif de cibles (éléments à trouver):";  
+        spanFR.innerHTML="Taille des cibles (objets)";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Target objectif (element to find):";
+        spanEN.innerHTML="Size of the targets";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -659,23 +657,75 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "unknown");
-        option1FR.textContent="cible(s) non prédéterminée(s)";
+        option1FR.setAttribute("value", "hand");
+        option1FR.textContent="moins grands qu'une main";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "known");
-        option2FR.textContent="cible(s) prédéterminée(s)";
+        option2FR.setAttribute("value", "large");
+        option2FR.textContent="grands objets";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "unknown");
-        option1EN.textContent="unknown target(s)";
+        option1EN.setAttribute("value", "hand");
+        option1EN.textContent="path";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "known");
-        option2EN.textContent="known (predetermined) target(s)";
+        option2EN.setAttribute("value", "large");
+        option2EN.textContent="large objects";
+
+        select.appendChild(option1FR);
+        select.appendChild(option2FR);
+        select.appendChild(option1EN);
+        select.appendChild(option2EN);
+
+        //4
+        var label = document.createElement("label");
+        var spanFR = document.createElement("span");
+        spanFR.innerHTML="Types de mouvements requis";  
+        spanFR.setAttribute("class", "lang lang_fr");
+        var spanEN = document.createElement("span");
+        spanEN.innerHTML="Kinds of required movements";
+        spanEN.setAttribute("class", "lang lang_en");
+        label.appendChild(spanFR);
+        label.appendChild(spanEN);
+        form.appendChild(label);
+
+        var select = document.createElement("select");
+        select.setAttribute("style", "width:10%");
+        select.setAttribute("id", "v4");
+        form.appendChild(select);
+
+        var option1FR = document.createElement("option");
+        option1FR.setAttribute("class", "lang lang_fr");
+        option1FR.setAttribute("value", "orientation");
+        option1FR.textContent="orientation";
+
+        var option2FR = document.createElement("option");
+        option2FR.setAttribute("class", "lang lang_fr");
+        option2FR.setAttribute("value", "translation");
+        option2FR.textContent="translation";
+
+        var option3FR = document.createElement("option");
+        option3FR.setAttribute("class", "lang lang_fr");
+        option3FR.setAttribute("value", "both");
+        option3FR.textContent="les 2";
+
+        var option1EN = document.createElement("option");
+        option1EN.setAttribute("class", "lang lang_en");
+        option1EN.setAttribute("value", "orientation");
+        option1EN.textContent="orientation";
+
+        var option2EN = document.createElement("option");
+        option2EN.setAttribute("class", "lang lang_en");
+        option2EN.setAttribute("value", "translation");
+        option2EN.textContent="translation";
+
+        var option3EN = document.createElement("option");
+        option3EN.setAttribute("class", "lang lang_fr");
+        option3EN.setAttribute("value", "both");
+        option3EN.textContent="both";
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
