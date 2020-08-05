@@ -209,8 +209,9 @@ input{
       }
 
       var itemsNavFR = [
-          ["controle direction/endroit ciblé(e) par", "n2", "n3", "n4"],
-          ["?", "?", "?", "?"],
+          ["contrôle direction/endroit cible", "zone de déplacement", "mode de choix de direction/endroit cible", "contrôle accélération/vitesse",
+            "type de contrôle accélération/vitesse", "variation accélération/vitesse", "ordre de grandeur vitesse"],
+          ["?", "?", "?", "?", "?", "?", "?"],
       ];
 
       var itemsSelFR = [
@@ -224,8 +225,9 @@ input{
       ];
 
       var itemsNavEN = [
-          ["control by", "n2", "n3", "n4"],
-          ["?", "?", "?", "?"],
+          ["contrôle direction/endroit cible", "zone de déplacement", "mode de choix de direction/endroit cible", "contrôle accélération/vitesse",
+            "type de contrôle accélération/vitesse", "variation accélération/vitesse", "ordre de grandeur vitesse"],
+          ["?", "?", "?", "?", "?", "?", "?"],
       ];
 
       var itemsSelEN = [
@@ -507,22 +509,22 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.setAttribute("value", "unknown");
         option1FR.textContent="cible(s) non prédéterminée(s)";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.setAttribute("value", "known");
         option2FR.textContent="cible(s) prédéterminée(s)";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.setAttribute("value", "unknown");
         option1EN.textContent="unknown target(s)";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.setAttribute("value", "known");
         option2EN.textContent="known (predetermined) target(s)";
 
         select.appendChild(option1FR);
@@ -657,22 +659,22 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.setAttribute("value", "unknown");
         option1FR.textContent="cible(s) non prédéterminée(s)";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.setAttribute("value", "known");
         option2FR.textContent="cible(s) prédéterminée(s)";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.setAttribute("value", "unknown");
         option1EN.textContent="unknown target(s)";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.setAttribute("value", "known");
         option2EN.textContent="known (predetermined) target(s)";
 
         select.appendChild(option1FR);
@@ -725,22 +727,22 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "short distances (<3m)");
+        option1FR.setAttribute("value", "short");
         option1FR.textContent="petites distances (<3m)";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "long distances (>3m)");
+        option2FR.setAttribute("value", "long");
         option2FR.textContent="grandes distances (>3m)";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "short distances (<3m)");
+        option1EN.setAttribute("value", "short");
         option1EN.textContent="short distances (<3m)";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "long distances (>3m)");
+        option2EN.setAttribute("value", "long");
         option2EN.textContent="long distances (>3m)";
 
         select.appendChild(option1FR);
@@ -811,22 +813,22 @@ input{
 
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
-        option1FR.setAttribute("value", "unknown target(s)");
+        option1FR.setAttribute("value", "unknown");
         option1FR.textContent="cible(s) non prédéterminée(s)";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "known (predetermined) target(s)");
+        option2FR.setAttribute("value", "known");
         option2FR.textContent="cible(s) prédéterminée(s)";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
-        option1EN.setAttribute("value", "unknown target(s)");
+        option1EN.setAttribute("value", "unknown");
         option1EN.textContent="unknown target(s)";
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "known (predetermined) target(s)");
+        option2EN.setAttribute("value", "known");
         option2EN.textContent="known (predetermined) target(s)";
 
         select.appendChild(option1FR);
@@ -889,7 +891,7 @@ input{
 
         if (kindOfMotorInt==="navigation"){
           var it = lang === "fr" ? itemsNavFR : itemsNavEN;
-          resetItems(it);
+          resetItems(lang === "fr" ? itemsNavFR : itemsNavEN);
           applyNAVRulesFromValues(it, v1,v2,v3);
           //create
           table = createTable(it, idFather);
@@ -940,13 +942,116 @@ input{
       }*/
 
       //HERE ARE THE RULES FOR NAV TODO
+
+
+      /*
+    0  ["contrôle direction/endroit cible", 
+    1  "zone de déplacement",
+    2  "mode de choix de direction/endroit cible",
+    3  "contrôle accélération/vitesse",
+    4  "type de contrôle (cas=utilisateur) accélération/vitesse", 
+    5  "variation (cas=automatique) accélération/vitesse",
+    6  "ordre de grandeur vitesse (si utilisateur+start/stop ou auto+variable)],
+          ["?", "?", "?", "?", "?", "?", "?"],
+      */
       function applyNAVRulesFromValues(it, v1, v2, v3){
         console.log(v1+";"+v2+";"+v3);
         var fr = lang === "fr";
 
-        if (v2=="path"){
-          it[1][0]= fr ? "utilisateur" : "user";
+        if (v3=="known"){
+          it[1][1]= fr ? "restreint" : "limited";
         }
+
+        if (v3=="unknown"){
+          it[1][1]= fr ? "libre/complète" : "free/complete";
+        }
+
+        if (v2=="final destination" && v3=="unknown"){
+          it[1][3]= fr ? "par l'utilisateur" : "user control";
+        }
+
+        if (v2=="path"){
+          it[1][0]= fr ? "par l'utilisateur" : "user control";
+          it[1][3]= fr ? "par l'utilisateur" : "user control";
+        }
+
+        if (v1=="short"){
+          it[1][2]= fr ? "direct" : "direct";
+          it[1][0]= fr ? "par l'utilisateur" : "user control";
+        }
+
+        if (v1=="long"&&v2=="final destination"){
+          it[1][2]= fr ? "indirect" : "indirect";
+        }
+
+        // si acc control = user
+        if (it[1][3]==="par l'utilisateur"||it[1][3]==="user control"){
+          it[1][5]= "X";
+        }
+        else{
+          if (it[1][3]!="?"){
+            it[1][4]= "X";
+          }
+        }
+
+        if (v1=="short"){
+          if (it[1][3]==="par l'utilisateur"|| it[1][3]==="user control"){
+            it[1][4]= fr ? "contrôle continu" : "continuous control";
+          }
+          else{
+            if (it[1][3]!="?"){
+              it[1][5]= fr ? "pas de variation (v. constante)" : "not variable (constant)";
+            }
+            else{
+              it[1][4]= fr ? "si control acc. = par l'utilisateur, alors contrôle continu" : "if acc. control = user control, then continuous control";
+              it[1][5]= fr ? "si control acc. = auto, alors pas de variation (v. constante)" : "if acc. control = auto, then not variable (constant)";
+            }
+          }
+        }
+
+        if (v1=="long"){
+          if (it[1][3]==="par l'utilisateur"|| it[1][3]==="user control"){
+            it[1][4]= fr ? "contrôle par actions de start/stop" : "start/stop control";
+          }
+          else{
+            if (it[1][3]!="?"){
+              it[1][5]= "variable";
+            }
+            else{
+              it[1][4]= fr ? "si control acc. = par l'utilisateur, alors contrôle par actions de start/stop" : "if acc. control = user control, then start/stop control";        
+              it[1][5]= fr ? "si control acc. = auto, alors variable" : "if acc. control = auto, then variable";      
+            }
+          }
+        }
+
+
+        if (
+
+
+          ((it[1][3]==="par l'utilisateur"|| it[1][3]==="user control") && it[1][4].includes("start/stop")) ||
+
+          ( (it[1][4].includes("par l'utilisateur")|| it[1][4].includes("user control")) && it[1][4].includes("start/stop") ) ||
+
+          (it[1][3]==="auto" && it[1][5]==="variable")
+
+
+          )
+
+        {
+
+          if (v2=="final destination"){
+            it[1][6]= fr ? "infinie" : "infinite";
+          }
+          if (v2=="path"){
+            it[1][6]= fr ? "vitesse humaine approx." : "approx. human speed";
+          }
+
+        }
+
+        else{
+            it[1][6]= "X";
+        }
+
       }
 
       //HERE ARE THE RULES FOR SEL TODO
@@ -1009,7 +1114,7 @@ input{
 
       function resetItems(items){
         for (var i = 1 ; i< items.length; i++) {
-          for (var j = 0 ; j< items.length; j++) {
+          for (var j = 0 ; j< items[1].length; j++) {
             items[i][j]="?";
           }
         }
