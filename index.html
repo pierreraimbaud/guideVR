@@ -215,13 +215,15 @@ input{
       ];
 
       var itemsSelFR = [
-          ["outil", "n2", "n3", "n4"],
+          ["type de sélection", "outil pour sélection", "relation mouvements réels/virtuels", "utilisation d'une technique de désambiguïsation"],
           ["?", "?", "?", "?"],
       ];
 
       var itemsManFR = [
-          ["outil", "n2", "n3", "n4"],
-          ["?", "?", "?", "?"],
+          ["type de mapping en translation (tr)", "(tr) relation mouvements réels/virtuels", "(tr) outil pour manipuler",
+          "type de mapping en rotation (rot)", "(rot) relation mouvements réels/virtuels", "(rot) outil pour manipuler"],
+          ["?", "?", "?",
+          "?", "?", "?"],
       ];
 
       var itemsNavEN = [
@@ -231,13 +233,15 @@ input{
       ];
 
       var itemsSelEN = [
-          ["tool", "n2", "n3", "n4"],
+          ["type de sélection", "outil pour sélection", "relation mouvements réels/virtuels", "utilisation d'une technique de désambiguïsation"],
           ["?", "?", "?", "?"],
       ];
 
       var itemsManEN = [
-          ["tool", "n2", "n3", "n4"],
-          ["?", "?", "?", "?"],
+          ["type de mapping en translation (tr)", "(tr) relation mouvements réels/virtuels", "(tr) outil pour manipuler",
+          "type de mapping en rotation (rot)", "(rot) relation mouvements réels/virtuels", "(rot) outil pour manipuler"],
+          ["?", "?", "?",
+          "?", "?", "?"],
       ];
 
       var VR_interactions = new Array();
@@ -704,8 +708,8 @@ input{
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
-        option2FR.setAttribute("value", "translation");
-        option2FR.textContent="translation";
+        option2FR.setAttribute("value", "position");
+        option2FR.textContent="positionnement";
 
         var option3FR = document.createElement("option");
         option3FR.setAttribute("class", "lang lang_fr");
@@ -719,8 +723,8 @@ input{
 
         var option2EN = document.createElement("option");
         option2EN.setAttribute("class", "lang lang_en");
-        option2EN.setAttribute("value", "translation");
-        option2EN.textContent="translation";
+        option2EN.setAttribute("value", "position");
+        option2EN.textContent="position";
 
         var option3EN = document.createElement("option");
         option3EN.setAttribute("class", "lang lang_fr");
@@ -729,8 +733,11 @@ input{
 
         select.appendChild(option1FR);
         select.appendChild(option2FR);
+        select.appendChild(option3FR);
+
         select.appendChild(option1EN);
         select.appendChild(option2EN);
+        select.appendChild(option3EN);
 
         li.appendChild(form);
 
@@ -958,7 +965,7 @@ input{
         else if (kindOfMotorInt==="manipulation"){
           var it = lang === "fr" ? itemsManFR : itemsManEN;
           resetItems(it);
-          applyMANRulesFromValues(it, v1,v2,v3);
+          applyMANRulesFromValues(it, v1,v2,v3, v4);
           //create
           table = createTable(it, idFather);
         }
@@ -1109,19 +1116,52 @@ input{
         console.log(v1+";"+v2+";"+v3);
         var fr = lang === "fr";
 
-        if (v2=="path"){
-          it[1][0]=fr ? "main" : "hand";
+        if (v3=="dense"){
+          it[1][3]=fr ? "recommandée" : "recommended";
+        }
+        if (v3=="sparse"){
+          it[1][3]=fr ? "probablement pas nécessaire" : "probably not necessary";
+        }
+        if (v1=="out" && v2=="hand"){
+          it[1][1]=fr ? "main virtuelle" : "virtual hand";
+          it[1][2]=fr ? "anisomorphique" : "anisomorphic";
+        }
+        if (v1=="arm" && v3=="sparse"){
+          it[1][0]=fr ? "directe" : "direct";
+        }
+        if (v1=="arm"){
+          it[1][2]=fr ? "isomorphique" : "isomorphic";
+        }
+        if (it[1][0].includes("indirect")){
+          it[1][1]="X";
+          it[1][2]="X";
+          it[1][3]="X";
         }
       }
 
       //HERE ARE THE RULES FOR SEL TODO
-      function applyMANRulesFromValues(it, v1, v2, v3){
-        console.log(v1+";"+v2+";"+v3);
+      function applyMANRulesFromValues(it, v1, v2, v3, v4){
+        console.log(v1+";"+v2+";"+v3+";"+v4);
         var fr = lang === "fr";
 
-        if (v2=="path"){
-          it[1][0]=fr ? "eee" : "ffff";
+        /*
+          ["type de mapping en translation (tr)", "(tr) relation mouvements réels/virtuels", "(tr) outil pour manipuler",
+          "type de mapping en rotation (rot)", "(rot) relation mouvements réels/virtuels", "(rot) outil pour manipuler"],
+          ["?", "?", "?",
+          "?", "?", "?"],*/
+
+        if (v4=="position"){
+          it[1][3]="X";
+          it[1][4]="X";
+          it[1][5]="X";
         }
+
+        if (v4=="orientation"){
+          it[1][0]="X";
+          it[1][1]="X";
+          it[1][2]="X";
+        }
+
       }
 
       function showNextAddTX(){ 
@@ -1795,11 +1835,35 @@ input{
           </button>
         </form>
       </div>
+        <label>
+          <h2>
+              <span class="lang lang_fr">Introduction</span>
+              <span class="lang lang_en">xxx</span>
+          </h2>
+          <span class="lang lang_fr">Une application de réalité virtuelle (RV) est principalement composée de contenu 3D et d'interactions utilisateur. Le contenu 3D est composé notamment de modèles 3D, issus de la conception assistée par ordinateur ou créés par des infographistes. Les interactions de RV permettent aux utilisateur d'effectuer des actions dans cet environnement. Pour permettre ces interactions, les experts RV doivent choisir et implémenter dans l'application des techniques d'interactions, qui permettre la réalisation concrète de celles-ci (ex: si l'interaction est le déplacement, je peux marcher, courir, me téléporter ...)
+            <br/><br/>
+            Cependant, trouver une technique d'interaction de RV qui convient à une tâche en particulier nécessite cette expertise en RV. Nous proposons ici une méthodologie pour permettre aux non-experts en RV de déterminer un maximum de caractéristiques à propos des futures techniques d'interaction RV de leur application. Ces caractéristisques, appropriées à la tâche, peuvent alors mises en œuvre par un développeur RV. Dans nos recherches actuelles, notre champ d'application est limité aux interactions motrices de la RV ; il pourra être étendu à l'avenir aux interactions sensorielles de la RV (perception).
+            <br/><br/>
+            Cette méthodologie suit un processus en trois étapes:
+            <ul>
+              <li>Etape 1: décomposer la tâche
+              </li>
+              <li>Etape 2: déterminer des propositions de technique d'interaction
+              </li>
+              <li>Etape 3: conduire des expériences utilisateur
+              </li>
+            </ul>
+          </span>
+          <span class="lang lang_en">Validate</span>
+        </label>
+      <div>
+
+      </div>
 
       <div>
         <h2 style="color:#1E90FF">
-              <span class="lang lang_fr">Etape 1: d&eacute;composition de la t&acirc;che utilisateur</span>
-              <span class="lang lang_en">Step 1: Decomposition of the user task</span>
+              <span class="lang lang_fr">Etape 1: d&eacute;composer la t&acirc;che utilisateur</span>
+              <span class="lang lang_en">Step 1: Decompose the user task</span>
         </h2>
         <form name="formS1" id="formS1"  action="#" onsubmit="S1validateForm();return false">
 
@@ -1829,7 +1893,7 @@ input{
                       </ul>
                       <i>Aide &agrave; la d&eacute;composition</i>: les verbes pr&eacute;c&eacute;demment cit&eacute;s sont propos&eacute;s dans cette liste: lorsque l'un d'entre eux est choisi, des verbes sont automatiquement propos&eacute;s dans les &eacute;tapes suivantes de la d&eacute;composition, et ainsi de suite jusqu'au dernier niveau (actions primitives). Vous pouvez n&eacute;anmoins toujours changer le choix qui a &eacute;t&eacute; propos&eacute; automatiquement.
                       <br/>
-                      <p style="font-size: 14px">Exceptions: le choix "autre", qui permet d'&eacute;crire un verbe propre au domaine m&eacute;tier, ainsi que "agir (physiquement)" -&eacute;galement pour des actes propres au m&eacute;tier, n'offrent pas de suggestions automatique pour les niveaux suivants.</p>
+                      <p style="font-size: 14px">Exceptions: le choix "autre", qui permet d'&eacute;crire un verbe propre au domaine m&eacute;tier, ainsi que "résoudre/agir/réaliser une action métier" -&eacute;galement pour des actes propres au m&eacute;tier, n'offrent pas de suggestions automatique pour les niveaux suivants.</p>
                     </span>
                     <span class="lang lang_en"><i>Important</i>: a task can be decomposed down into a maximum of 4 subtasks.<br/><br/>
                     <i>Recommendation/proposal</i>: This decomposition can generally follow the following scheme, without necessarily including these 4 types of subtasks:
@@ -1864,7 +1928,7 @@ input{
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
                         <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
-                        <option class="lang lang_fr" value="perform">agir (physiquement)</option>
+                        <option class="lang lang_fr" value="perform">résoudre/agir/réaliser une action métier</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
                         <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
@@ -1895,7 +1959,7 @@ input{
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
                         <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
-                        <option class="lang lang_fr" value="perform">agir (physiquement)</option>
+                        <option class="lang lang_fr" value="perform">résoudre/agir/réaliser une action métier</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
                         <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
@@ -1927,7 +1991,7 @@ input{
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
                         <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
-                        <option class="lang lang_fr" value="perform">agir (physiquement)</option>
+                        <option class="lang lang_fr" value="perform">résoudre/agir/réaliser une action métier</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
                         <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
@@ -1959,7 +2023,7 @@ input{
                         <option class="lang lang_fr" value="locate">localiser</option>
                         <option class="lang lang_fr" value="understand">comprendre</option>
                         <option class="lang lang_fr" value="prepare">pr&eacute;parer</option>
-                        <option class="lang lang_fr" value="perform">agir (physiquement)</option>
+                        <option class="lang lang_fr" value="perform">résoudre/agir/réaliser une action métier</option>
                         <option class="lang lang_fr" value="finalise">finaliser</option>
                         <option class="lang lang_fr" value="close">cl&ocirc;turer</option>
                         <option class="lang lang_fr" value="other">autre</option>
@@ -6567,7 +6631,7 @@ input{
 
       <div>
         <h2 style="color:#FF69B4">
-            <span class="lang lang_fr">Etape 2</span>
+            <span class="lang lang_fr">Etape 2: déterminer des propositions de technique d'interaction</span>
             <span class="lang lang_en">Step 2</span>
         </h2>
 
