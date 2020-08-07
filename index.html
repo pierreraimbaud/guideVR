@@ -411,7 +411,7 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Distance objet-utilisateur";  
+        spanFR.innerHTML="Distance entre les objets et l'utilisateur";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Distance object-user:";
@@ -453,7 +453,7 @@ input{
         //2
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Taille des cibles (objets)";  
+        spanFR.innerHTML="Taille des objets ciblés";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Size of the targets";
@@ -561,7 +561,7 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Distance objet-utilisateur";  
+        spanFR.innerHTML="Distance entre les objets et l'utilisateur";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Distance object-user:";
@@ -603,7 +603,7 @@ input{
         //2
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Portée nécessaire de déplacement";  
+        spanFR.innerHTML="Portée nécessaire de déplacement des objets";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Range required to handle the object";
@@ -727,7 +727,7 @@ input{
         option2EN.textContent="position";
 
         var option3EN = document.createElement("option");
-        option3EN.setAttribute("class", "lang lang_fr");
+        option3EN.setAttribute("class", "lang lang_en");
         option3EN.setAttribute("value", "both");
         option3EN.textContent="both";
 
@@ -768,7 +768,7 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Type de distance:";  
+        spanFR.innerHTML="Type de distance à parcourir:";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Kind of distance:";
@@ -812,7 +812,7 @@ input{
         //2
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Objectif spatial:";  
+        spanFR.innerHTML="Objectif/but spatial:";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
         spanEN.innerHTML="Spatial objectif:";
@@ -829,12 +829,12 @@ input{
         var option1FR = document.createElement("option");
         option1FR.setAttribute("class", "lang lang_fr");
         option1FR.setAttribute("value", "path");
-        option1FR.textContent="chemin";
+        option1FR.textContent="chemin/trajet parcouru";
 
         var option2FR = document.createElement("option");
         option2FR.setAttribute("class", "lang lang_fr");
         option2FR.setAttribute("value", "final destination");
-        option2FR.textContent="destination finale";
+        option2FR.textContent="arrivée/destination finale";
 
         var option1EN = document.createElement("option");
         option1EN.setAttribute("class", "lang lang_en");
@@ -1120,7 +1120,7 @@ input{
           it[1][3]=fr ? "recommandée" : "recommended";
         }
         if (v3=="sparse"){
-          it[1][3]=fr ? "probablement pas nécessaire" : "probably not necessary";
+          it[1][3]=fr ? "non nécessaire a priori" : "probably not necessary";
         }
         if (v1=="out" && v2=="hand"){
           it[1][1]=fr ? "main virtuelle" : "virtual hand";
@@ -1846,7 +1846,7 @@ input{
             <br/><br/>
             Cette méthodologie suit un processus en trois étapes:
             <ul>
-              <li>Etape 1: décomposer la tâche
+              <li>Etape 1: décomposer la tâche utilisateur
               </li>
               <li>Etape 2: déterminer des propositions de technique d'interaction
               </li>
