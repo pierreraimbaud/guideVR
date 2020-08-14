@@ -266,6 +266,8 @@ input{
         }
       }
 
+      var taskNameTxt="";
+
       function S1validateForm(){
 
         var parent = document.getElementById("listMotorActions");
@@ -275,9 +277,9 @@ input{
 
         //alert("definition t&acirc;che enregistr&eacute;e");
 
-        var taskName = document.forms["formS1"]["taskName"].value;
+        taskNameTxt = document.forms["formS1"]["taskName"].value;
 
-        textContentS1 += "taskName"+":"+taskName+"\r\n";
+        textContentS1 += "taskName"+":"+taskNameTxt+"\r\n";
 
         //var stakeholderName = document.forms["formS1"]["stakeholderName"].value;
         //var phaseName = document.forms["formS1"]["phaseName"].value;
@@ -2122,7 +2124,7 @@ t =textContentS2;
         var file_path = makeTextFile(t);//corriger
 var a = document.createElement('A');
 a.href = file_path;
-a.setAttribute('download',"test"+step+".txt");
+a.setAttribute('download',taskNameTxt+" "+step+".txt");
 
 document.body.appendChild(a);
 a.click();
@@ -2169,6 +2171,20 @@ document.body.removeChild(a);
               <li>Etape 2: déterminer des propositions de technique d'interaction
               </li>
               <li>Etape 3: conduire des expériences utilisateur
+              </li>
+            </ul>
+          </span>
+          <span class="lang lang_en">A virtual reality (VR) application is mainly composed of 3D content and user interactions. The 3D content is made up of 3D models, either from computer-aided design or created by graphic designers. VR interactions allow users to perform actions in this environment. To enable these interactions, VR experts must choose and implement in the application interaction techniques, which allow the concrete realization of these interactions (e.g. if the interaction is moving, I can walk, run, teleport ...).
+            <br/><br/>
+            However, finding a VR interaction technique suitable for a particular task requires this VR expertise. Here we propose a methodology to enable non-VR experts to determine as many characteristics as possible about future VR interaction techniques for their application. These characteristics, appropriate to the task, can then be implemented by a VR developer. In our current research, our scope is limited to VR motor interactions; it may be extended in the future to VR sensory interactions (perception).
+            <br/><br/>
+            This methodology follows a three-step process:
+            <ul>
+              <li>Step 1: Decompose the user task
+              </li>
+              <li>Step 2: Determine proposals for interaction techniques
+              </li>
+              <li>Step 3: conduct user experiences
               </li>
             </ul>
           </span>
