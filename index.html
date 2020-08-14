@@ -382,7 +382,7 @@ input{
 
         showPageIn();
         
-        download("S1");
+        //download("S1");
 
         //allAPVerbs.forEach(element => console.log(getKindOfMotor(element)));
 
@@ -2156,7 +2156,7 @@ document.body.removeChild(a);
         <label>
           <h2>
               <span class="lang lang_fr">Introduction</span>
-              <span class="lang lang_en">xxx</span>
+              <span class="lang lang_en">Introduction</span>
           </h2>
           <span class="lang lang_fr">Une application de réalité virtuelle (RV) est principalement composée de contenu 3D et d'interactions utilisateur. Le contenu 3D est composé notamment de modèles 3D, issus de la conception assistée par ordinateur ou créés par des infographistes. Les interactions de RV permettent aux utilisateur d'effectuer des actions dans cet environnement. Pour permettre ces interactions, les experts RV doivent choisir et implémenter dans l'application des techniques d'interactions, qui permettre la réalisation concrète de celles-ci (ex: si l'interaction est le déplacement, je peux marcher, courir, me téléporter ...)
             <br/><br/>
@@ -2172,14 +2172,6 @@ document.body.removeChild(a);
               </li>
             </ul>
           </span>
-          <label>
-            Open file dialog
-            <input style="border: 0px;width: 15%" id="filel" type="file" accept=".txt" onchange="loadVarFile(event)"></input>
-            
-            <button onclick="load()">Charger données</button>
-          </label>
-          <br/>
-          <!--<button onclick="download()">Téléverser données</button>-->
         </label>
       <div>
 
@@ -2190,7 +2182,27 @@ document.body.removeChild(a);
               <span class="lang lang_fr">Etape 1: d&eacute;composer la t&acirc;che utilisateur</span>
               <span class="lang lang_en">Step 1: Decompose the user task</span>
         </h2>
-        <form name="formS1" id="formS1"  action="#" onsubmit="S1validateForm();return false">
+
+        <div>
+          <label>
+            <span class="lang lang_fr">Pour charger une tâche déjà décomposée sur ce site:</span>
+            <span class="lang lang_en">To load a task already decomposed on this website:</span>
+            <input style="border: 0px;width: 15%" id="filel" type="file" accept=".txt" onchange="loadVarFile(event)"></input>
+            
+            <button onclick="load()">
+              <span class="lang lang_fr">Charger les données du fichier</span>
+              <span class="lang lang_en">Load data from the file</span>
+            </button>
+          </label>
+          <br/><br/>
+          <label>
+            <span class="lang lang_fr">Sinon, veuillez remplir le formulaire suivant:</span>
+            <span class="lang lang_en">Otherwise, please fill in the following form:</span>
+          </label>
+          <br/><br/>
+        </div>
+
+        <form name="formS1" id="formS1"  action="#" onsubmit="S1validateForm();download('S1');return false">
 
           <div id="zoneDecompo-0to1" style="border-color: var(--colorZone0-1); border-style: solid; padding:0.5%">
             <label style="font-weight: bold">
@@ -7414,22 +7426,34 @@ document.body.removeChild(a);
             <span class="lang lang_en">Steps 2.1 (sorting and separation), 2.2 (form), 2.3 (table)</span>
         </h3>
         <label>
-            Open file dialog
-            <input style="border: 0px;width: 15%" id="filel" type="file" accept=".txt" onchange="loadVarFileS2(event)"></input>
-            
-            <button onclick="loadS2()">Charger données S2</button>
+            <span class="lang lang_fr">Les interactions motrices d'une t&acirc;che sont les suivantes: avancer/bouger= navigation, prendre/attraper, activer et cibler= selection, positionner/orienter= manipulation).</span>
+            <span class="lang lang_en">The motor interactions of a task are the following: move=navigation, take/grab, activate/target=selection, position/orient=manipulation.</span>
         </label>
+        <br/><br/>
         <label>
-            <span class="lang lang_fr">Les interactions motrices (avancer/bouger= navigation, prendre/attraper, activer et cibler= selection, positionner/orienter= manipulation) de la t&acirc;che sont les suivantes. Vous devez sélectionner dans les listes déroulantes ce qui caractérise le mieux l'action que vous devrez faire.<br/><br/>En validant votre réponse, les caractéristiques proposées pour une technique d'interaction adaptée à cette action apparaitront. Une case verte donne une réponse déjà déterminée, tandis qu'une case rouge signifie que le développeur devra trancher ou plutôt expérimenter différentes techniques avec vous.</span>
-            <span class="lang lang_en">The motor interactions (travel=navigation, take/grab, activate and target=selection, place/orient=manipulation) of the task are the followings:</span>
+          <span class="lang lang_fr">Pour charger les données précédemment fournies sur les interactions via ce site:</span>
+          <span class="lang lang_en">To load previously provided interaction data via this website:</span>
+          <input style="border: 0px;width: 15%" id="filel" type="file" accept=".txt" onchange="loadVarFileS2(event)"></input>
+          
+          <button onclick="loadS2()">
+            <span class="lang lang_fr">Charger les données du fichier</span>
+            <span class="lang lang_en">Load data from the file</span>
+          </button>
+        </label>
+        <br/><br/>
+        <label>
+            <span class="lang lang_fr">Sinon, veuillez remplir le formulaire suivant. Vous devez sélectionner dans les listes déroulantes ce qui caractérise le mieux l'action que vous devrez faire. Puis, en validant votre réponse pour chaque interaction, les caractéristiques proposées pour une technique d'interaction adaptée à cette action apparaitront. Une case verte donne une réponse déjà déterminée, tandis qu'une case rouge signifie que le développeur devra trancher ou plutôt expérimenter différentes techniques avec vous.</span>
+            <span class="lang lang_en">Otherwise, please fill in the following form. You must select from the drop-down lists what best characterizes the action you will have to do. Then, by validating your answer for each interaction, the characteristics proposed for an interaction technique adapted to this action will appear. A green box gives an already determined answer, while a red box means that the developer will have to decide or rather experiment different techniques with you.</span>
         </label>
 
         <div id="listMotorActionsDiv">
           <ul id="listMotorActions"></ul>
         </div>
 
-          <br/>
-          <button onclick="download('S2')">Valider pour télécharger etape 2</button>
+        <button onclick="download('S2')">
+            <span class="lang lang_fr">Télécharger l'ensemble des données (une fois renseignées)</span>
+            <span class="lang lang_en">Download all the data (once filled in)</span>
+        </button>
 
         <!--<form name="formS2" id="formS2">
           <label>Prim. 1.1.a: </label>
