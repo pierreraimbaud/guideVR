@@ -445,10 +445,10 @@ input{
         //1
         var label = document.createElement("label");
         var spanFR = document.createElement("span");
-        spanFR.innerHTML="Type de moyen/manière de sélection";  
+        spanFR.innerHTML="Moyen/manière de sélection";  
         spanFR.setAttribute("class", "lang lang_fr");
         var spanEN = document.createElement("span");
-        spanEN.innerHTML="Selection type:";
+        spanEN.innerHTML="Way to select:";
         spanEN.setAttribute("class", "lang lang_en");
         label.appendChild(spanFR);
         label.appendChild(spanEN);
@@ -1203,28 +1203,49 @@ input{
         console.log(v1+";"+v2+";"+v3);
         var fr = lang === "fr";
 
-
-
+        //dense vs sparse
         if (v4=="dense"){
           it[1][3]=fr ? "recommandée" : "recommended";
         }
         if (v4=="sparse"){
           it[1][3]=fr ? "non nécessaire a priori" : "probably not necessary";
         }
-        if (v2=="out" && v3=="hand"){
-          it[1][1]=fr ? "main virtuelle" : "virtual hand";
-          it[1][2]=fr ? "anisomorphique" : "anisomorphic";
-        }
-        if (v2=="arm" && v4=="sparse"){
-          it[1][0]=fr ? "directe" : "direct";
-        }
-        if (v2=="arm"){
-          it[1][2]=fr ? "isomorphique" : "isomorphic";
+
+        //objets lointains
+        if (v2=="out"){
+          if (v3=="hand"){
+            it[1][1]=fr ? "main virtuelle" : "virtual hand";
+            it[1][2]=fr ? "anisomorphique" : "anisomorphic";
+          }
+          else if (v3=="large"){
+            it[1][1]=fr ? "les 2 (main/rayon), rayon potentiellement meilleur" : "both (hand/raycast), raycast potentially better";
+          }
         }
 
+        //objets proches
+        if (v2=="arm"){
+
+          it[1][2]=fr ? "les 2 (isomorphique ou anisomorphique)" : "both (isomorphic or anisomorphic)";
+
+          if (v3=="large"){
+            it[1][1]=fr ? "rayon" : "raycast";
+          }
+          else if (v3=="hand"){
+            it[1][1]=fr ? "les 2 (main/rayon)" : "both (hand/raycast)";
+          }
+        }
+
+        //concret vs abstrait
         if (v1=="activating"){
           it[1][0]=fr ? "indirecte" : "indirect";
         }
+        else{
+          it[1][0]=fr ? "directe" : "direct";
+        }
+        //
+        //if (v2=="arm" && v4=="sparse"){
+          //it[1][0]=fr ? "directe" : "direct";
+        //}
 
         if (it[1][0].includes("indirect")){
           it[1][1]="X";
